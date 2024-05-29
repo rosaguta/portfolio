@@ -29,7 +29,7 @@ export default function Home() {
       </motion.img>
       <div className="flex min-h-screen flex-col items-center justify-center">
         <div className="flex flex-row items-center justify-center ">
-          <img src="/Rose.png" className="w-40 opacity-0" />
+          <img src="/Rose.png" className="w-40 opacity-0" /> {/** Placehoder img for the animation */}
           <motion.div initial={{ opacity: 0, }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 3.5 }}>
