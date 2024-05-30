@@ -7,8 +7,8 @@ export default function Home() {
   const [loadingText, setLoadingText] = useState('loading');
   const [visible, setVisible] = useState(true);
   const { width, height } = useWindowDimensions();
-  const imgposX = Math.trunc(width / 2) 
-  const imgposY = Math.trunc((height / 2) -70)
+  const imgposX = Math.trunc(width / 2)
+  const imgposY = Math.trunc((height / 2) - 70)
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -37,14 +37,21 @@ export default function Home() {
 
   return (
     <div >
-      <motion.img
-        initial={{ opacity: 1, scale: 0.2 }}
-        animate={{ opacity: 1, scale: 1, y: imgposY, x: -imgposX }}
+      <motion.img 
+        initial={{ opacity: 1, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1, y: imgposY, x: -imgposX }} 
         transition={{ duration: 1.25, delay: 1.5 }}
         src="/Rose.png"
-        className="w-40 absolute -right-8 -top-10"
-      >
-      </motion.img>
+        className="w-40 absolute -right-4 -top-5 hidden md:block"
+      ></motion.img> {/**desktop img view */}
+        <motion.img 
+          initial={{ opacity: 1, scale: 0.3 }}
+          animate={{ opacity: 1, scale: 1, y: imgposY, x: -imgposX }}
+          transition={{ duration: 1.25, delay: 1.5 }}
+          src="/Rose.png"
+          className="w-40 absolute -right-8 -top-10 md:hidden block"
+        ></motion.img> {/**phone img view */}
+      
       {(visible) ? (
         <div>
           {bootlines.map((el, i) => (
