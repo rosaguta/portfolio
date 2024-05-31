@@ -6,9 +6,10 @@ import useWindowDimensions from '@/functions/useWindowDimensions.js'
 export default function BootScreenAnim() {
   const [loadingText, setLoadingText] = useState('loading');
   const [visible, setVisible] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);  // State for managing fade-out
   const { width, height } = useWindowDimensions();
-  const imgposX = Math.trunc(width / 2)
-  const imgposY = Math.trunc((height / 2) - 70)
+  const imgposX = Math.trunc(width / 2);
+  const imgposY = Math.trunc((height / 2) - 70);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -23,12 +24,13 @@ export default function BootScreenAnim() {
     return () => clearInterval(interval);
   }, []);
 
-  const bootlines = "Brewing coffee\t\t\t[ok]\nAdding sugar\t\t\t[ok]\nPreparing blahaj\t\t[ok]\nSetting up connections\t[ok]\nPreparing playlist\t\t[ok]\nGathering Projects\t\t[ok]".split('\n')
+  const bootlines = "Brewing coffee\t\t\t[ok]\nAdding sugar\t\t\t[ok]\nPreparing blahaj\t\t[ok]\nSetting up connections\t[ok]\nPreparing playlist\t\t[ok]\nGathering Projects\t\t[ok]".split('\n');
 
   useEffect(() => {
     const totalDuration = bootlines.length * 0.1 + 0.05;
     const timeout = setTimeout(() => {
       setVisible(false);
+      setFadeOut(true);  // Trigger fade-out
     }, totalDuration * 1000 + 500);
 
     return () => clearTimeout(timeout);
@@ -37,24 +39,31 @@ export default function BootScreenAnim() {
   const getRandomDelay = (min, max) => {
     return Math.random() * (max - min) + min;
   };
+
   return (
-    <div>
+    <motion.div 
+      initial={{ opacity: 1 }} 
+      animate={{ opacity: 0 }}  
+      transition={{ duration: 0.5, delay: 5 }}  
+      className="bg-black"
+    >
       <motion.img 
         initial={{ opacity: 1, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1, y: imgposY, x: -imgposX }} 
         transition={{ duration: 1.25, delay: 1.5 }}
         src="/Rose.png"
         className="w-40 absolute -right-4 -top-5 hidden font-mono md:block"
-      ></motion.img> {/**desktop img view */}
-        <motion.img 
-          initial={{ opacity: 1, scale: 0.3 }}
-          animate={{ opacity: 1, scale: 1, y: imgposY, x: -imgposX }}
-          transition={{ duration: 1.25, delay: 1.5 }}
-          src="/Rose.png"
-          className="w-40 absolute -right-8 -top-10 font-mono md:hidden block"
-        ></motion.img> {/**phone img view */}
+      ></motion.img>
       
-      {(visible) ? (
+      <motion.img 
+        initial={{ opacity: 1, scale: 0.3 }}
+        animate={{ opacity: 1, scale: 1, y: imgposY, x: -imgposX }}
+        transition={{ duration: 1.25, delay: 1.5 }}
+        src="/Rose.png"
+        className="w-40 absolute -right-8 -top-10 font-mono md:hidden block"
+      ></motion.img>
+      
+      {visible ? (
         <div>
           {bootlines.map((el, i) => (
             <motion.pre
@@ -80,10 +89,9 @@ export default function BootScreenAnim() {
           ))}
         </div>
       ) : (
-
         <div className="flex min-h-screen flex-col items-center justify-center">
           <div className="flex flex-row items-center justify-center ">
-            <img src="/Rose.png" className="w-40 opacity-0" /> {/** Placeholder img for the animation */}
+            <img src="/Rose.png" className="w-40 opacity-0" />
             <motion.div initial={{ opacity: 0, }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 1.5 }}>
@@ -97,6 +105,6 @@ export default function BootScreenAnim() {
           </motion.div>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }
