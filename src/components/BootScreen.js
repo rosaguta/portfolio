@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion'
 import useWindowDimensions from '@/functions/useWindowDimensions.js'
 
-export default function BootScreen() {
+export default function BootScreenAnim() {
   const [loadingText, setLoadingText] = useState('loading');
   const [visible, setVisible] = useState(true);
   const { width, height } = useWindowDimensions();
