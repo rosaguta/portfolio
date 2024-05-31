@@ -34,7 +34,9 @@ export default function Home() {
     return () => clearTimeout(timeout);
   }, []);
 
-
+  const getRandomDelay = (min, max) => {
+    return Math.random() * (max - min) + min;
+  };
   return (
     <div >
       <motion.img 
@@ -42,14 +44,14 @@ export default function Home() {
         animate={{ opacity: 1, scale: 1, y: imgposY, x: -imgposX }} 
         transition={{ duration: 1.25, delay: 1.5 }}
         src="/Rose.png"
-        className="w-40 absolute -right-4 -top-5 hidden md:block"
+        className="w-40 absolute -right-4 -top-5 hidden font-mono md:block"
       ></motion.img> {/**desktop img view */}
         <motion.img 
           initial={{ opacity: 1, scale: 0.3 }}
           animate={{ opacity: 1, scale: 1, y: imgposY, x: -imgposX }}
           transition={{ duration: 1.25, delay: 1.5 }}
           src="/Rose.png"
-          className="w-40 absolute -right-8 -top-10 md:hidden block"
+          className="w-40 absolute -right-8 -top-10 font-mono md:hidden block"
         ></motion.img> {/**phone img view */}
       
       {(visible) ? (
@@ -60,7 +62,7 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{
                 duration: 0.05,
-                delay: i / 10,
+                delay: i / getRandomDelay(5,10),
               }}
               key={i}
               className={"lg:text-xl pt-2 pl-2 absolute"}
