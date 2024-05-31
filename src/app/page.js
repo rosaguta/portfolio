@@ -1,14 +1,16 @@
 "use client"
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion'
-import useWindowDimensions from '@/functions/useWindowDimensions.js'
-import BootScreen from '@/components/BootScreen';
+import BootScreenAnim from '@/components/BootScreen';
 
 export default function Home() {
- 
+
   return (
-    <div >
-      <BootScreenAnim/>
+    <div>
+      <div className='hidden'>
+        <BootScreenAnim />
+      </div>
+      <div className='h-auto max-w-full'>
+        <img className="object-fill"src="/Rosey-stars.png"></img>
+      </div>
     </div>
   );
 }

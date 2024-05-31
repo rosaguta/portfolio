@@ -38,7 +38,7 @@ export default function BootScreenAnim() {
     return Math.random() * (max - min) + min;
   };
   return (
-    <div >
+    <div>
       <motion.img 
         initial={{ opacity: 1, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1, y: imgposY, x: -imgposX }} 
