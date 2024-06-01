@@ -101,7 +101,7 @@ export default function BootScreenAnim() {
           <motion.div initial={{ opacity: 0, }}
             animate={{ opacity: 1, scale: 1, }}
             transition={{ duration: 0.2, delay: 2 }}>
-            <p className="mt-4 font-mono">{loadingText}</p>
+            <p className="mt-4 font-thin font-mono">{loadingText}</p>
           </motion.div>
         </div>
       )}

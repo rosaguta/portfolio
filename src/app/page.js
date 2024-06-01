@@ -20,14 +20,14 @@ export default function Home() {
           <BootScreenAnim />
         </div>
       ) : (
-        <div className="relative h-full w-full">
+        <div className="bg-[url('/Rosey-stars.png')] bg-cover bg-center h-screen">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
             className="bg-black">
-            <img className="absolute top-0 left-0 h-full w-full object-cover" src="/Rosey-stars.png" />
           </motion.div>
+          <div className='bottom-0 h-10 bg-black absolute inset-x-0'></div>
         </div>
       )}
     </div>

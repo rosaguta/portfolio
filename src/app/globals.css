@@ -19,6 +19,15 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+.noscrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE and Edge */
+.noscrollbar {
+  -ms-overflow-style: none;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
