@@ -6,7 +6,6 @@ import useWindowDimensions from '@/functions/useWindowDimensions.js'
 export default function BootScreenAnim() {
   const [loadingText, setLoadingText] = useState('loading');
   const [visible, setVisible] = useState(true);
-  const [fadeOut, setFadeOut] = useState(false);  // State for managing fade-out
   const { width, height } = useWindowDimensions();
   const imgposX = Math.trunc(width / 2);
   const imgposY = Math.trunc((height / 2) - 70);
@@ -30,7 +29,6 @@ export default function BootScreenAnim() {
     const totalDuration = bootlines.length * 0.1 + 0.05;
     const timeout = setTimeout(() => {
       setVisible(false);
-      setFadeOut(true);  // Trigger fade-out
     }, totalDuration * 1000 + 500);
 
     return () => clearTimeout(timeout);
