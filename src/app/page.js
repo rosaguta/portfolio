@@ -32,7 +32,7 @@ export default function Home() {
           
           <div className='md:block hidden'>
             <BottomBar />
-            <Socials />
+            
           </div>
           <div className='md:hidden block'>
             <TopBar/>
