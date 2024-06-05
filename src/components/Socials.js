@@ -1,6 +1,6 @@
 export default function Socials() {
     return (
-        <div className="bg-neutral-800 bg-opacity-40 w-80 h-52 rounded-[25px] py-4 px-5 ">
+        <div className="bg-neutral-800 bg-opacity-40 w-80 h-52 rounded-[25px] py-4 px-5 backdrop-blur-sm">
             <h1 className="font-bold">Socials</h1>
             <div className="flex items-center justify-center w-full">
                 <div className="grid gap-9 grid-cols-3">
