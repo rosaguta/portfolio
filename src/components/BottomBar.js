@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Socials from "./Socials";
 import { motion, AnimatePresence } from "framer-motion";
 import Music from './Music';
+import StartMenu from './StartMenu';
 
 export default function BottomBar() {
     const [socialActive, setSocialActive] = useState(false);
@@ -63,8 +64,10 @@ export default function BottomBar() {
                         <Music />
                     </motion.div>
                 )}
-
             </AnimatePresence>
+            <div className='bottom-20 left-10 absolute'>
+                <StartMenu/>
+            </div>
         </>
     );
 }
