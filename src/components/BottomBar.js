@@ -1,4 +1,4 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react';
+import React, { useState} from 'react';
 import Socials from "./Socials";
 import { motion, AnimatePresence } from "framer-motion";
 import Music from './Music';
