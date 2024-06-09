@@ -29,8 +29,8 @@ export default function Home() {
             transition={{ duration: 0.3 }}
             className="bg-[url('/Rosey-stars.png')] bg-cover bg-center h-screen">
             <Browser />
-
-            <div className='flex justify-start py-10'>
+            {/** grid doesnt scale well */}
+            {/* <div className='flex justify-start py-10'>
               <div className='grid grid-rows-5 grid-flow-col w-screen gap-y-9 max-h-screen'>
                 <div className='flex justify-center items-center'>
                   <img className='object-scale-down h-52 w-52' src='/car.jpg' />
@@ -52,7 +52,7 @@ export default function Home() {
                 <div className='flex justify-center items-center'>13</div>
                 <div className='flex justify-center items-center'>14</div>
                 <div className='flex justify-center items-center'>15</div>
-                {/** Really ugly but dont care for now, need fix */}
+                {/** Really ugly but dont care for now, need fix 
                 <div></div>
                 <div></div>
                 <div></div>
@@ -83,7 +83,7 @@ export default function Home() {
                 <div></div>
                 <div></div>
               </div>
-            </div>
+            </div> */}
             <div className='md:hidden block'>
               <TopBar />
             </div>
