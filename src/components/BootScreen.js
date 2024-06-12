@@ -23,7 +23,22 @@ export default function BootScreenAnim() {
     return () => clearInterval(interval);
   }, []);
 
-  const bootlines = "Brewing coffee\t\t\t[ok]\nAdding sugar\t\t\t[ok]\nPreparing blahaj\t\t[ok]\nSetting up connections\t[ok]\nPreparing playlist\t\t[ok]\nGathering Projects\t\t[ok]".split('\n');
+  const bootlines = `Brewing coffee\t\t\t\t\t\t[ok]
+Adding sugar\t\t\t\t\t\t[ok]
+Preparing blahaj\t\t\t\t\t[ok]
+Setting up connections\t\t\t\t[ok]
+Preparing playlist\t\t\t\t\t[ok]
+Gathering Projects\t\t\t\t\t[ok]
+Applying inclusive CSS styles\t\t[ok]
+Updating pronoun preferences\t\t[ok]
+Synchronizing rainbow stickers\t\t[ok]
+Optimizing self-care routines\t\t[ok]
+Installing gender-affirming patches\t[ok]
+Authenticating true self\t\t\t[ok]
+Loading empowerment protocols\t\t[ok]
+Initializing confidence boost\t\t[ok]
+Integrating diversity modules\t\t[ok]
+Deploying positivity framework\t\t[ok]`.split('\n');
 
   useEffect(() => {
     const totalDuration = bootlines.length * 0.1 + 0.05;
