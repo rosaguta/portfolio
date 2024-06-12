@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion'
 import useWindowDimensions from '@/functions/useWindowDimensions.js'
 
@@ -44,26 +44,33 @@ Deploying positivity framework\t\t[ok]`.split('\n');
     const totalDuration = bootlines.length * 0.1 + 0.05;
     const timeout = setTimeout(() => {
       setVisible(false);
-    }, totalDuration * 1000 + 500);
+    }, totalDuration * 1500 + 500);
 
     return () => clearTimeout(timeout);
   }, []);
 
-  const getRandomDelay = (min, max) => {
-    return Math.random() * (max - min) + min;
-  };
+  const getRandomDelay = (min, max) => Math.random() * (max - min) + min;
+
+  const delays = useMemo(() => {
+    let totalDelay = 0;
+    return bootlines.map(() => {
+      const delay = getRandomDelay(0.05, 0.25);
+      totalDelay += delay;
+      return totalDelay;
+    });
+  }, [bootlines.length]);
 
   return (
     <motion.div 
       initial={{ opacity: 1 }} 
       animate={{ opacity: 0 }}  
-      transition={{ duration: 0.5, delay: 5 }}  
+      transition={{ duration: 0.5, delay: 6.5  }}  
       className="bg-black"
     >
       <motion.img 
         initial={{ opacity: 1, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1, y: imgposY, x: -imgposX }} 
-        transition={{ duration: 1.25, delay: 1.5 }}
+        transition={{ duration: 1.25, delay: 3 }}
         src="/Rose.png"
         className="w-40 absolute -right-4 -top-5 hidden font-mono md:block"
       ></motion.img>
@@ -71,7 +78,7 @@ Deploying positivity framework\t\t[ok]`.split('\n');
       <motion.img 
         initial={{ opacity: 1, scale: 0.3 }}
         animate={{ opacity: 1, scale: 1, y: imgposY, x: -imgposX }}
-        transition={{ duration: 1.25, delay: 1.5 }}
+        transition={{ duration: 1.25, delay: 3 }}
         src="/Rose.png"
         className="w-40 absolute -right-8 -top-10 font-mono md:hidden block"
       ></motion.img>
@@ -84,7 +91,7 @@ Deploying positivity framework\t\t[ok]`.split('\n');
               animate={{ opacity: 1 }}
               transition={{
                 duration: 0.05,
-                delay: i / getRandomDelay(5,10),
+                delay: delays[i],
               }}
               key={i}
               className={"lg:text-xl pt-2 pl-2 absolute"}
