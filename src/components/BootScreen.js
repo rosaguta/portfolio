@@ -8,7 +8,7 @@ export default function BootScreenAnim() {
   const [visible, setVisible] = useState(true);
   const { width, height } = useWindowDimensions();
   const imgposX = Math.trunc(width / 2);
-  const imgposY = Math.trunc((height / 2) - 70);
+  const imgposY = Math.trunc((height / 2) - 80);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -95,7 +95,7 @@ Deploying positivity framework\t\t[ok]`.split('\n');
               }}
               key={i}
               className={"lg:text-xl pt-2 pl-2 absolute"}
-              style={{ top: `${i * 1.5}rem` }}
+              style={{ top: `${i * 2}rem` }}
             >
               {el.includes('ok') ? (
                 <>
