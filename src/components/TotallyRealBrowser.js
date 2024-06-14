@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getMdxContent } from '@/server/mdxLoader';
 import { MDXRemote } from 'next-mdx-remote';
+import MdxComponent from './MdxComponent';
 
 export default function Browser({
   handleCloseClick,
@@ -62,7 +63,7 @@ export default function Browser({
           </div>
         </div>
         <div className="p-5">
-          {mdxContent}
+          <MdxComponent/>
         </div>
       </div>
     </div>
