@@ -5,9 +5,9 @@ const MDXContent = dynamic(()=>import('./authentication.mdx'))
 
 const MdxComponent = () =>{
   return(
-    <>
+    <div className="">
       <MDXContent/>
-    </>
+    </div>
   )
 }
 export default MdxComponent

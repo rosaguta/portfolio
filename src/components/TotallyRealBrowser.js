@@ -11,7 +11,7 @@ export default function Browser({
   isMaximized,
 }) {
   const [browserStyle, setBrowserStyle] = useState({ width: '1000px', height: '600px' });
-  const [mdxContent, setMdxContent] = useState()
+  // const [mdxContent, setMdxContent] = useState()
   useEffect(() => {
     if (isMaximized) {
       setBrowserStyle({ width: '100%', height: '100%' });
@@ -20,7 +20,7 @@ export default function Browser({
     }
   }, [isMaximized]);
   useEffect(()=>{
-    setMdxContent(getMdxContent("src\\markdown\\authentication.mdx"))
+    // setMdxContent(getMdxContent("src\\markdown\\authentication.mdx"))
   },[])
   if (isMinimized) {
     return null;
@@ -62,8 +62,8 @@ export default function Browser({
             </div>
           </div>
         </div>
-        <div className="p-5">
-          <MdxComponent/>
+        <div className="p-5 prose">
+          <MdxComponent />
         </div>
       </div>
     </div>

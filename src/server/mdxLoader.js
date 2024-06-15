@@ -7,6 +7,5 @@ export async function getMdxContent(filePath) {
   const fullPath = path.join(process.cwd(), filePath);
   const fileContent = fs.readFileSync(fullPath, 'utf8');
   const { content } = matter(fileContent);
-  console.log(content)
   return content;
 }
