@@ -5,8 +5,8 @@ const MDXContent = dynamic(()=>import('./authentication.mdx'))
 
 const MdxComponent = () =>{
   return(
-    <div className="">
-      <MDXContent/>
+    <div className='prose prose-invert'>
+      <MDXContent />
     </div>
   )
 }

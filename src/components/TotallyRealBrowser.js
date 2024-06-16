@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
-import { getMdxContent } from '@/server/mdxLoader';
-import { MDXRemote } from 'next-mdx-remote';
+import { useState, useEffect } from 'react';;
 import MdxComponent from './MdxComponent';
+import '../styles/removescroll.css'
 
 export default function Browser({
   handleCloseClick,
@@ -19,9 +18,9 @@ export default function Browser({
       setBrowserStyle({ width: '1000px', height: '600px' });
     }
   }, [isMaximized]);
-  useEffect(()=>{
+  useEffect(() => {
     // setMdxContent(getMdxContent("src\\markdown\\authentication.mdx"))
-  },[])
+  }, [])
   if (isMinimized) {
     return null;
   }
@@ -62,8 +61,10 @@ export default function Browser({
             </div>
           </div>
         </div>
-        <div className="p-5 prose">
-          <MdxComponent />
+        <div className='py-3 px-10 flex overflow-y-auto h-[540px] scrollbar-hidden'>
+          <div className="">
+            <MdxComponent />
+          </div>
         </div>
       </div>
     </div>
