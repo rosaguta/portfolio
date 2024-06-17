@@ -5,7 +5,7 @@ const MDXContent = dynamic(()=>import('./authentication.mdx'))
 
 const MdxComponent = () =>{
   return(
-    <div className='prose prose-invert'>
+    <div className='!max-w-none prose prose-invert w-full relative'>
       <MDXContent />
     </div>
   )

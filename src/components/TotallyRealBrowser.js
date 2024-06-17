@@ -61,9 +61,9 @@ export default function Browser({
             </div>
           </div>
         </div>
-        <div className='py-3 px-10 flex overflow-y-auto h-[540px] scrollbar-hidden'>
-          <div className="">
-            <MdxComponent />
+        <div className='py-3 px-10 mx-auto overflow-y-auto h-[540px] scrollbar-hidden'>
+          <div className="!max-w-none">
+            <MdxComponent/>
           </div>
         </div>
       </div>
