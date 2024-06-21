@@ -1,7 +1,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 
-const MDXContent = dynamic(()=>import('./authentication.mdx'))
+const MDXContent = dynamic(()=>import('../markdown/authentication.mdx'))
 
 const MdxComponent = () =>{
   return(
