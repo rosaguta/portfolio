@@ -67,36 +67,58 @@ export default function Home() {
               </AnimatePresence>
             )}
 
-            <div className='grid grid-rows-5 grid-flow-col p-10 items-centers h-screen w-screen'>
-                <img src="/discord.png" className="object-scale-down h-12 w-12" alt="test"></img>
-                <img src="/github_edit.png" className="object-scale-down h-12 w-12"></img>
-                <img src="/Steam_icon_logo.svg.png" className="object-scale-down h-12 w-12"></img>
-                <img src="/twitteer.png" className="object-scale-down h-12 w-12"></img>
+            <div className='grid grid-rows-5 grid-flow-col p-12 items-centers h-screen w-screen'>
+              <div className="w-28 justify-center flex items-center text-center">
+                <img src="/Roseicon.png" alt="test"></img>
+                <p>ME :3</p>
+              </div>
+              <div className="w-28">
+                <img src="/github_edit.png"></img>
+              </div>
+              <div className="w-28">
+                <img src="/Steam_icon_logo.svg.png"></img>
+              </div>
+              <div className="w-28">
+                <img src="/twitteer.png"></img>
+              </div>
+              <div className="w-28">
+                <img src="/discord.png" ></img>
+              </div>
+              <div className="w-28">
+                <img src="/github_edit.png"></img>
+              </div>
+              <div className="w-28">
+                <img src="/Steam_icon_logo.svg.png"></img>
+              </div>
+              <div className="w-28">
+                <img src="/twitteer.png" ></img>
+              </div>
+              <div className="w-28">
+                <img src="/discord.png" ></img>
+              </div>
+              <div className="w-28">
+                <img src="/github_edit.png" ></img>
+              </div>
+              <div className="w-28">
+                <img src="/Steam_icon_logo.svg.png" ></img>
+              </div>
+              <div className="w-28">
+                <img src="/twitteer.png"></img>
+              </div>
+              <div></div>
+              <div></div>
+              <div></div>
 
-                <img src="/discord.png" className="object-scale-down h-12 w-12" alt="test"></img>
-                <img src="/github_edit.png" className="object-scale-down h-12 w-12"></img>
-                <img src="/Steam_icon_logo.svg.png" className="object-scale-down h-12 w-12"></img>
-                <img src="/twitteer.png" className="object-scale-down h-12 w-12"></img>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
 
-                <img src="/discord.png" className="object-scale-down h-12 w-12" alt="test"></img>
-                <img src="/github_edit.png" className="object-scale-down h-12 w-12"></img>
-                <img src="/Steam_icon_logo.svg.png" className="object-scale-down h-12 w-12"></img>
-                <img src="/twitteer.png" className="object-scale-down h-12 w-12"></img>
-
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
             </div>
             <div className="md:hidden block">
               <TopBar />
