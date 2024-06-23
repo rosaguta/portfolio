@@ -67,7 +67,7 @@ export default function Home() {
               </AnimatePresence>
             )}
 
-            <div className='grid grid-rows-5 grid-flow-col gap-y-32 p-10 items-centers'>
+            <div className='grid grid-rows-5 grid-flow-col p-10 items-centers h-screen w-screen'>
                 <img src="/discord.png" className="object-scale-down h-12 w-12" alt="test"></img>
                 <img src="/github_edit.png" className="object-scale-down h-12 w-12"></img>
                 <img src="/Steam_icon_logo.svg.png" className="object-scale-down h-12 w-12"></img>
@@ -82,7 +82,7 @@ export default function Home() {
                 <img src="/github_edit.png" className="object-scale-down h-12 w-12"></img>
                 <img src="/Steam_icon_logo.svg.png" className="object-scale-down h-12 w-12"></img>
                 <img src="/twitteer.png" className="object-scale-down h-12 w-12"></img>
-                
+
                 <div></div>
                 <div></div>
                 <div></div>
