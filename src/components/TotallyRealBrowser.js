@@ -8,6 +8,7 @@ export default function Browser({
   handleMinimizeClick,
   isMinimized,
   isMaximized,
+  openendTabs
 }) {
   const [browserStyle, setBrowserStyle] = useState({width: '70%', height: '70%'});
   const [browserCenterStyle , setBrowserCenterStyle] = useState({ 'align-items':'center' })
@@ -29,8 +30,8 @@ export default function Browser({
   }
 
   return (
-    <div className="relative w-screen h-screen flex justify-center" style={browserCenterStyle}>
-      <div className="bg-neutral-900 rounded-md relative" style={browserStyle}>
+    <div className="absolute w-screen h-screen flex justify-center" style={browserCenterStyle}>
+      <div className="bg-neutral-900 rounded-md " style={browserStyle}>
         <div className="bg-neutral-950 rounded-t-md justify-between flex w-full h-12">
           <div className="flex items-center">
             <div className="bg-neutral-900 rounded-md w-52 h-8 ml-2 flex items-center p-1">
@@ -64,7 +65,7 @@ export default function Browser({
             </div>
           </div>
         </div>
-        <div className='py-3 px-10 mx-auto h-[91%] overflow-y-auto scrollbar-hidden'>
+        <div className='py-3 px-10 mx-auto h-[91%] overflow-y-auto no-scrollbar'>
             <MdxComponent/>
         </div>
       </div>

@@ -6,13 +6,15 @@ import Browser from '@/components/TotallyRealBrowser';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import useWindowDimensions from '@/functions/useWindowDimensions';
+import '../styles/removescroll.css'
 
 export default function Home() {
   const [showBootScreen, setShowBootScreen] = useState(true);
-  const [isBrowserActive, setIsBrowserActive] = useState(false);
+  const [isBrowserActive, setIsBrowserActive] = useState(true);
   const [isBrowserMinimized, setIsBrowserMinimized] = useState(false);
   const [isBrowserMaximized, setIsBrowserMaximized] = useState(false);
   const { width, height } = useWindowDimensions();
+  const [tabsOpenend, setTabOpenend] = useState([])
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -33,6 +35,16 @@ export default function Home() {
     setIsBrowserMaximized(!isBrowserMaximized);
   };
 
+  const handleTabClick = (tabclicked) => {
+    if(tabsOpenend.includes(tabclicked)){
+      return
+    }
+    setTabOpenend((prevtabs) => [
+      ...prevtabs, 
+      tabclicked
+    ]);
+  };
+
   return (
     <div className="h-screen w-screen overflow-hidden static">
       {showBootScreen ? (
@@ -45,15 +57,15 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
-            className="bg-[url('/Rosey-stars.png')] bg-cover bg-center h-screen"
+            className="bg-[url('/Rosey-stars.png')] bg-cover bg-center h-screen "
           >
             {isBrowserActive && (
               <AnimatePresence>
                 {!isBrowserMinimized && (
                   <motion.div
-                    initial={{ y: height / 1.8, x: -width / 2, opacity: 0.25, scale: 0 }}
+                    initial={{ y: height, x: -width / 3, opacity: 0.25, scale: 0 }}
                     animate={{ x: 0, y: 0, opacity: 1, scale: 1 }}
-                    exit={{ y: height / 1.8, x: -width / 2, opacity: 0, scale: 0 }}
+                    exit={{ y: height, x: -width / 3, opacity: 0, scale: 0 }}
                     transition={{ duration: 0.2 }}>
                     <Browser
                       handleCloseClick={handleCloseClick}
@@ -61,50 +73,40 @@ export default function Home() {
                       handleSizeClick={handleSizeClick}
                       isMinimized={isBrowserMinimized}
                       isMaximized={isBrowserMaximized}
+
                     />
                   </motion.div>
                 )}
               </AnimatePresence>
             )}
 
-            <div className='grid grid-rows-5 grid-flow-col p-12 items-centers h-screen w-screen'>
-              <div className="w-28 justify-center flex items-center text-center">
+            <div className='grid grid-rows-5 grid-flow-col justify-items-center py-10 h-screen w-screen'>
+              <div className="w-28 justify-center items-center text-center cursor-pointer" onClick={()=>handleTabClick("")}>
                 <img src="/Roseicon.png" alt="test"></img>
-                <p>ME :3</p>
+                <p className='m-2'>About.me</p>
               </div>
-              <div className="w-28">
-                <img src="/github_edit.png"></img>
+              <div className="w-28 justify-center items-center text-center">
+                <img src="/Roseicon.png" alt="test"></img>
+                <p className='m-2'>ME :3</p>
               </div>
-              <div className="w-28">
-                <img src="/Steam_icon_logo.svg.png"></img>
+              <div className="w-28 justify-center items-center text-center">
+                <img src="/Roseicon.png" alt="test"></img>
+                <p className='m-2'>ME :3</p>
               </div>
-              <div className="w-28">
-                <img src="/twitteer.png"></img>
+              <div className="w-28 justify-center items-center text-center">
+                <img src="/Roseicon.png" alt="test"></img>
+                <p className='m-2'>ME :3</p>
               </div>
-              <div className="w-28">
-                <img src="/discord.png" ></img>
+              <div className="w-28 justify-center items-center text-center">
+                <img src="/Roseicon.png" alt="test"></img>
+                <p className='m-2'>ME :3</p>
               </div>
-              <div className="w-28">
-                <img src="/github_edit.png"></img>
+
+              <div className="w-28 justify-center items-center text-center cursor-pointer" onClick={()=>handleTabClick("")}>
+                <img src="/Roseicon.png" alt="test"></img>
+                <p className='m-2'>ME :3</p>
               </div>
-              <div className="w-28">
-                <img src="/Steam_icon_logo.svg.png"></img>
-              </div>
-              <div className="w-28">
-                <img src="/twitteer.png" ></img>
-              </div>
-              <div className="w-28">
-                <img src="/discord.png" ></img>
-              </div>
-              <div className="w-28">
-                <img src="/github_edit.png" ></img>
-              </div>
-              <div className="w-28">
-                <img src="/Steam_icon_logo.svg.png" ></img>
-              </div>
-              <div className="w-28">
-                <img src="/twitteer.png"></img>
-              </div>
+              <div></div>
               <div></div>
               <div></div>
               <div></div>
@@ -115,6 +117,25 @@ export default function Home() {
               <div></div>
               <div></div>
 
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+
+              <div></div>
               <div></div>
               <div></div>
               <div></div>
