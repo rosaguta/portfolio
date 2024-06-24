@@ -80,29 +80,29 @@ export default function Home() {
               </AnimatePresence>
             )}
 
-            <div className='grid grid-rows-5 grid-flow-col justify-items-center py-10 h-screen w-screen'>
-              <div className="w-28 justify-center items-center text-center cursor-pointer" onClick={()=>handleTabClick("")}>
+            <div className='relative grid grid-rows-5 grid-flow-col justify-items-center py-12 h-screen w-screen z-10'>
+              <div className="w-24 justify-center items-center text-center cursor-pointer" onClick={()=>handleTabClick("")}>
                 <img src="/Roseicon.png" alt="test"></img>
                 <p className='m-2'>About.me</p>
               </div>
-              <div className="w-28 justify-center items-center text-center">
+              <div className="w-24 justify-center items-center text-center">
                 <img src="/Roseicon.png" alt="test"></img>
                 <p className='m-2'>ME :3</p>
               </div>
-              <div className="w-28 justify-center items-center text-center">
+              <div className="w-24 justify-center items-center text-center">
                 <img src="/Roseicon.png" alt="test"></img>
                 <p className='m-2'>ME :3</p>
               </div>
-              <div className="w-28 justify-center items-center text-center">
+              <div className="w-24 justify-center items-center text-center">
                 <img src="/Roseicon.png" alt="test"></img>
                 <p className='m-2'>ME :3</p>
               </div>
-              <div className="w-28 justify-center items-center text-center">
+              <div className="w-24 justify-center items-center text-center">
                 <img src="/Roseicon.png" alt="test"></img>
                 <p className='m-2'>ME :3</p>
               </div>
 
-              <div className="w-28 justify-center items-center text-center cursor-pointer" onClick={()=>handleTabClick("")}>
+              <div className="w-24 justify-center items-center text-center cursor-pointer" onClick={()=>handleTabClick("")}>
                 <img src="/Roseicon.png" alt="test"></img>
                 <p className='m-2'>ME :3</p>
               </div>

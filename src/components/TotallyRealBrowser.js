@@ -30,8 +30,8 @@ export default function Browser({
   }
 
   return (
-    <div className="absolute w-screen h-screen flex justify-center" style={browserCenterStyle}>
-      <div className="bg-neutral-900 rounded-md " style={browserStyle}>
+    <div className="absolute h-screen w-screen flex justify-center" style={browserCenterStyle}>
+      <div className="bg-neutral-900 rounded-md z-20 " style={browserStyle}>
         <div className="bg-neutral-950 rounded-t-md justify-between flex w-full h-12">
           <div className="flex items-center">
             <div className="bg-neutral-900 rounded-md w-52 h-8 ml-2 flex items-center p-1">
