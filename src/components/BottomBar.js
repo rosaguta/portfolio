@@ -25,7 +25,7 @@ export default function BottomBar({ BrowserActive, handleBrowserVisibility }) {
 
     return (
         <>
-            <div className='bottom-0 h-14 bg-black flex items-center  absolute inset-x-0 bg-opacity-50 justify-between'>
+            <div className='bottom-0 h-14 bg-black flex items-center z-10 absolute inset-x-0 bg-opacity-50 justify-between'>
                 <div className='flex ml-4 gap-x-2'>
                     <div className='hover:bg-opacity-50 transition duration-150 ease-in-out hover:bg-neutral-700 rounded-full p-1.5 w-14 h-12 flex items-center' onClick={handleStartMenuCick}>
                         <img src="/Rose.png" className='p-1'></img>
