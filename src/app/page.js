@@ -63,9 +63,9 @@ export default function Home() {
               <AnimatePresence>
                 {!isBrowserMinimized && (
                   <motion.div
-                    initial={{ y: height, x: -width / 3, opacity: 0.25, scale: 0 }}
+                    initial={{ y: height, x: -width / 2.1, opacity: 0.25, scale: 0 }}
                     animate={{ x: 0, y: 0, opacity: 1, scale: 1 }}
-                    exit={{ y: height, x: -width / 3, opacity: 0, scale: 0 }}
+                    exit={{ y: height, x: -width / 2.1, opacity: 0, scale: 0 }}
                     transition={{ duration: 0.2 }}>
                     <Browser
                       handleCloseClick={handleCloseClick}
