@@ -12,7 +12,8 @@ export default function Browser({
 }) {
   const [browserStyle, setBrowserStyle] = useState({ width: '70%', height: '70%' });
   const [browserCenterStyle, setBrowserCenterStyle] = useState({ 'align-items': 'center' })
-  // const [mdxContent, setMdxContent] = useState()
+  const [activeTab, setActiveTab] = useState([])
+
   useEffect(() => {
     if (isMaximized) {
       setBrowserStyle({ width: '100%', height: '95%' });
@@ -23,7 +24,6 @@ export default function Browser({
     }
   }, [isMaximized]);
   useEffect(() => {
-    // setMdxContent(getMdxContent("src\\markdown\\authentication.mdx"))
   }, [])
   if (isMinimized) {
     return null;
@@ -32,36 +32,20 @@ export default function Browser({
   return (
     <div className="absolute h-screen w-screen flex justify-center" style={browserCenterStyle}>
       <div className="bg-neutral-900 rounded-md z-20 " style={browserStyle}>
+        {/* TODO: remake this with openendTabs.map or sum*/}
         <div className="bg-neutral-950 rounded-t-md justify-between flex w-full h-12">
           <div className="flex items-center">
-            <div className="bg-neutral-900 rounded-md w-52 h-8 ml-2 flex items-center p-1 justify-between">
-              {/* TODO: remake this with openendTabs.map or sum*/}
-              <div className='flex items-center'>
-                <img className="object-scale-down h-8 w-8 mr-1" src="/blahaj.png" />
-                <p className="text-sm">Authentication</p>
+            {openendTabs.map((item) => (
+              <div className="bg-neutral-900 rounded-md w-52 h-8 ml-2 flex items-center p-1 justify-between">
+                <div className='flex items-center'>
+                  <img className="object-scale-down h-8 w-8 mr-1" src={item.icon} />
+                  <p className="text-sm">{item.title}</p>
+                </div>
+                <div className='flex items-center mr-2'>
+                  <p className='text-slate-300'>x</p>
+                </div>
               </div>
-              <div className='flex items-center mr-2'>
-                <p className='text-slate-300'>x</p>
-              </div>
-            </div>
-            <div className="bg-neutral-900 rounded-md w-52 h-8 ml-2 flex items-center p-1 justify-between">
-              <div className='flex items-center'>
-                <img className="object-scale-down h-8 w-8 mr-1" src="/blahaj.png" />
-                <p className="text-sm">tab#2</p>
-              </div>
-              <div className='flex items-center mr-2'>
-                <p className='text-slate-300'>x</p>
-              </div>
-            </div>
-            <div className="bg-neutral-900 rounded-md w-52 h-8 ml-2 flex items-center p-1 justify-between">
-              <div className='flex items-center'>
-                <img className="object-scale-down h-8 w-8 mr-1" src="/blahaj.png" />
-                <p className="text-sm">tab#3</p>
-              </div>
-              <div className='flex items-center mr-2'>
-                <p className='text-slate-300'>x</p>
-              </div>
-            </div>
+            ))}
           </div>
           <div className="flex items-center mr-1">
             <div
@@ -82,7 +66,9 @@ export default function Browser({
           </div>
         </div>
         <div className='py-3 px-10 mx-auto h-[91%] overflow-y-auto no-scrollbar'>
-          <MdxComponent />
+          {openendTabs.length != 0 &&(
+            <MdxComponent path={openendTabs[0].path} />
+          )}
         </div>
       </div>
     </div>

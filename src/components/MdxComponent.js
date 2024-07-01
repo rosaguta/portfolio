@@ -1,9 +1,10 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 
-const MDXContent = dynamic(()=>import('../markdown/authentication.mdx'))
+// const MDXContent = dynamic(()=>import('../markdown/authentication.mdx'))
 
-const MdxComponent = () =>{
+const MdxComponent = ({path}) =>{
+  const MDXContent = dynamic(()=>import(path))
   return(
     <div className='!max-w-none prose prose-invert w-full relative'>
       <MDXContent />
