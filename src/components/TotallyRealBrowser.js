@@ -45,7 +45,7 @@ export default function Browser({
           {openendTabs.map((item, index) => {
             console.log("Tab index: " + index); // Debugging index
             return (
-              <div key={index} className="bg-neutral-900 rounded-md w-52 h-8 ml-2 flex items-center p-1 justify-between">
+              <div key={index} className="bg-neutral-900 rounded-md w-52 h-8 ml-2 flex items-center p-1 justify-between cursor-pointer">
                 <div className='flex items-center' onClick={() => handleActiveTab(index)}>
                   <img className="object-scale-down h-8 w-8 mr-1" src={item.icon} />
                   <p className="text-sm">{item.title}</p>
