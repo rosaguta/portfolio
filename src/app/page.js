@@ -37,9 +37,8 @@ export default function Home() {
   };
 
   const handleTabClick = (tabclicked) => {
-    setIsBrowserActive(true)
+    setIsBrowserActive(true);
     setTabOpenend(oldArr => [...oldArr, tabclicked]);
-    console.log(tabsOpenend);
   };
 
   return (
@@ -81,11 +80,11 @@ export default function Home() {
               </div>
             )}
             <div className='relative grid grid-rows-5 grid-flow-col justify-items-center py-12 h-screen w-screen z-10'>
-              <div className="w-24 justify-center items-center text-center cursor-pointer" onClick={() => handleTabClick({ path: "../markdown/authentication.mdx", icon: "/Roseicon.png", title: "authentication" })}>
+              <div className="w-24 justify-center items-center text-center cursor-pointer" onClick={() => handleTabClick({ pathKey: 'authentication', icon: "/Roseicon.png", title: "authentication" })}>
                 <img src="/Roseicon.png" alt="test"></img>
                 <p className='m-2'>About.me</p>
               </div>
-              <div className="w-24 justify-center items-center text-center">
+              <div className="w-24 justify-center items-center text-center" onClick={() => handleTabClick({ pathKey: 'smtindifferent', icon: "/Roseicon.png", title: "WOAH" })}>
                 <img src="/Roseicon.png" alt="test"></img>
                 <p className='m-2'>ME :3</p>
               </div>
