@@ -31,10 +31,11 @@ export default function Browser({
 
   const handleTabClose = (i) =>{
     // console.log(openendTabs.length - 2)
+    console.log("before:"+activeTab)
     setActiveTab(openendTabs.length - 2)
 
     openendTabs.splice(i, 1)
-    console.log(activeTab)
+    console.log("after:"+activeTab)
     console.log(openendTabs)
     console.log(openendTabs[activeTab])
   }
