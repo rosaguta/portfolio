@@ -8,12 +8,12 @@ export default function Browser({
   handleMinimizeClick,
   isMinimized,
   isMaximized,
-  openendTabs
+  openendTabs,
 }) {
   const [browserStyle, setBrowserStyle] = useState({ width: '70%', height: '70%' });
   const [browserCenterStyle, setBrowserCenterStyle] = useState({ 'align-items': 'center' })
-  const [activeTab, setActiveTab] = useState(0)
-
+  const [activeTab, setActiveTab] = useState(openendTabs.length - 1);
+  
   useEffect(() => {
     if (isMaximized) {
       setBrowserStyle({ width: '100%', height: '95%' });
@@ -29,13 +29,15 @@ export default function Browser({
     return null;
   }
 
-  const handleActiveTab = (i) => {
-    console.log("Function called with index: " + i);
-    console.log("Current activeTab: ", activeTab); // Before update
-    setActiveTab(i);
-    console.log("Updated activeTab: ", i); // After update
-  };
+  const handleTabClose = (i) =>{
+    // console.log(openendTabs.length - 2)
+    setActiveTab(openendTabs.length - 2)
 
+    openendTabs.splice(i, 1)
+    console.log(activeTab)
+    console.log(openendTabs)
+    console.log(openendTabs[activeTab])
+  }
 
   return (
     <div className="absolute h-screen w-screen flex justify-center" style={browserCenterStyle}>
@@ -43,15 +45,14 @@ export default function Browser({
         <div className="bg-neutral-950 rounded-t-md justify-between flex w-full h-12">
           <div className="flex items-center">
           {openendTabs.map((item, index) => {
-            console.log("Tab index: " + index); // Debugging index
             return (
-              <div key={index} className="bg-neutral-900 rounded-md w-52 h-8 ml-2 flex items-center p-1 justify-between cursor-pointer">
-                <div className='flex items-center' onClick={() => handleActiveTab(index)}>
+              <div key={index} className="bg-neutral-900 rounded-md w-52 h-8 ml-2 flex items-center p-1 justify-between cursor-pointer" onClick={() => setActiveTab(index)}>
+                <div className='flex items-center'>
                   <img className="object-scale-down h-8 w-8 mr-1" src={item.icon} />
                   <p className="text-sm">{item.title}</p>
                 </div>
-                <div className='flex items-center mr-2'>
-                  <p className='text-slate-300'>x</p>
+                <div className='flex items-center mr-2' onClick={() => handleTabClose(index)}>
+                  <p className='text-slate-300'>X</p>
                 </div>
               </div>
             );
@@ -76,7 +77,7 @@ export default function Browser({
           </div>
         </div>
         <div className='py-3 px-10 mx-auto h-[91%] overflow-y-auto no-scrollbar'>
-          {openendTabs.length != 0 &&(
+          {openendTabs.length !== 0 && openendTabs[activeTab] !== undefined &&(
             <MdxComponent pathKey={openendTabs[activeTab].pathKey} />
           )}
         </div>

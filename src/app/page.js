@@ -72,6 +72,7 @@ export default function Home() {
                           isMinimized={isBrowserMinimized}
                           isMaximized={isBrowserMaximized}
                           openendTabs={tabsOpenend}
+                          
                         />
                       </motion.div>
                     )}
@@ -84,7 +85,7 @@ export default function Home() {
                 <img src="/Roseicon.png" alt="test"></img>
                 <p className='m-2'>About.me</p>
               </div>
-              <div className="w-24 justify-center items-center text-center" onClick={() => handleTabClick({ pathKey: 'smtindifferent', icon: "/Roseicon.png", title: "WOAH" })}>
+              <div className="w-24 justify-center items-center text-center cursor-pointer" onClick={() => handleTabClick({ pathKey: 'smtindifferent', icon: "/Roseicon.png", title: "WOAH" })}>
                 <img src="/Roseicon.png" alt="test"></img>
                 <p className='m-2'>ME :3</p>
               </div>
