@@ -13,7 +13,6 @@ const MdxComponent = ({pathKey}) =>{
   
   const MDXContent = dynamic(mdxFiles[pathKey], { ssr: false });
   // console.log(MDXContent)
-  console.log("i was called")
     return(
     <div className='!max-w-none prose prose-invert w-full relative'>
      {MDXContent ? <MDXContent /> : <p>Loading...</p>}

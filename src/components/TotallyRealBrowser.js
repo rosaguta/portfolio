@@ -13,6 +13,7 @@ export default function Browser({
   const [browserStyle, setBrowserStyle] = useState({ width: '70%', height: '70%' });
   const [browserCenterStyle, setBrowserCenterStyle] = useState({ 'align-items': 'center' })
   const [activeTab, setActiveTab] = useState(openendTabs.length - 1);
+  const [dummyState, setDummyState] = useState(0);
   
   useEffect(() => {
     if (isMaximized) {
@@ -23,21 +24,21 @@ export default function Browser({
       setBrowserCenterStyle({ 'align-items': 'center' })
     }
   }, [isMaximized]);
+
   useEffect(() => {
-  }, [])
+    setActiveTab(activeTab)
+  }, [activeTab]);
+
+
+
   if (isMinimized) {
     return null;
   }
 
   const handleTabClose = (i) =>{
-    // console.log(openendTabs.length - 2)
-    console.log("before:"+activeTab)
-    setActiveTab(openendTabs.length - 2)
-
-    openendTabs.splice(i, 1)
-    console.log("after:"+activeTab)
-    console.log(openendTabs)
-    console.log(openendTabs[activeTab])
+    setActiveTab((i))
+    openendTabs.splice(i, 1)    
+    setDummyState((prev) => prev + 1);
   }
 
   return (
@@ -52,7 +53,10 @@ export default function Browser({
                   <img className="object-scale-down h-8 w-8 mr-1" src={item.icon} />
                   <p className="text-sm">{item.title}</p>
                 </div>
-                <div className='flex items-center mr-2' onClick={() => handleTabClose(index)}>
+                <div className='flex items-center mr-2' onClick={(e) => {
+                  e.stopPropagation(); // Prevent triggering the tab click
+                  handleTabClose(index);
+                }}>
                   <p className='text-slate-300'>X</p>
                 </div>
               </div>
@@ -78,9 +82,12 @@ export default function Browser({
           </div>
         </div>
         <div className='py-3 px-10 mx-auto h-[91%] overflow-y-auto no-scrollbar'>
-          {openendTabs.length !== 0 && openendTabs[activeTab] !== undefined &&(
+          {openendTabs.length !== 0 && openendTabs[activeTab] !== undefined ? (
             <MdxComponent pathKey={openendTabs[activeTab].pathKey} />
-          )}
+          )
+          :
+          null
+          }
         </div>
       </div>
     </div>

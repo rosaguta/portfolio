@@ -23,6 +23,9 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(()=>{
+    console.log(tabsOpenend.length)
+  },[tabsOpenend])
   const handleCloseClick = () => {
     setTabOpenend([])
     setIsBrowserActive(false);
@@ -35,6 +38,8 @@ export default function Home() {
   const handleSizeClick = () => {
     setIsBrowserMaximized(!isBrowserMaximized);
   };
+
+  
 
   const handleTabClick = (tabclicked) => {
     setIsBrowserActive(true);
@@ -65,15 +70,16 @@ export default function Home() {
                         animate={{ x: 0, y: 0, opacity: 1, scale: 1 }}
                         exit={{ y: height, x: -width / 2.1, opacity: 0, scale: 0 }}
                         transition={{ duration: 0.2 }}>
-                        <Browser
-                          handleCloseClick={handleCloseClick}
-                          handleMinimizeClick={handleMinimizeClick}
-                          handleSizeClick={handleSizeClick}
-                          isMinimized={isBrowserMinimized}
-                          isMaximized={isBrowserMaximized}
-                          openendTabs={tabsOpenend}
-                          
-                        />
+                        {tabsOpenend.length > 0 && (
+                          <Browser
+                            handleCloseClick={handleCloseClick}
+                            handleMinimizeClick={handleMinimizeClick}
+                            handleSizeClick={handleSizeClick}
+                            isMinimized={isBrowserMinimized}
+                            isMaximized={isBrowserMaximized}
+                            openendTabs={tabsOpenend}
+                          />)}
+
                       </motion.div>
                     )}
                   </AnimatePresence>
