@@ -10,7 +10,7 @@ import '../styles/removescroll.css'
 
 export default function Home() {
   const [showBootScreen, setShowBootScreen] = useState(true);
-  const [isBrowserActive, setIsBrowserActive] = useState(true);
+  const [isBrowserActive, setIsBrowserActive] = useState(false);
   const [isBrowserMinimized, setIsBrowserMinimized] = useState(false);
   const [isBrowserMaximized, setIsBrowserMaximized] = useState(false);
   const { width, height } = useWindowDimensions();
@@ -25,6 +25,9 @@ export default function Home() {
 
   useEffect(()=>{
     console.log(tabsOpenend.length)
+    if(tabsOpenend.length === 0){
+      setIsBrowserActive(false)
+    }
   },[tabsOpenend])
   const handleCloseClick = () => {
     setTabOpenend([])
@@ -39,7 +42,6 @@ export default function Home() {
     setIsBrowserMaximized(!isBrowserMaximized);
   };
 
-  
 
   const handleTabClick = (tabclicked) => {
     setIsBrowserActive(true);
@@ -78,6 +80,7 @@ export default function Home() {
                             isMinimized={isBrowserMinimized}
                             isMaximized={isBrowserMaximized}
                             openendTabs={tabsOpenend}
+                            setTabOpened={setTabOpenend}
                           />)}
 
                       </motion.div>
