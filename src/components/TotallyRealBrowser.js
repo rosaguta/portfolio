@@ -52,17 +52,17 @@ export default function Browser({
     <div className="absolute h-screen w-screen flex justify-center" style={browserCenterStyle}>
       <div className="bg-neutral-900 rounded-md z-20 " style={browserStyle}>
         <div className="bg-neutral-950 rounded-t-md justify-between flex w-full h-12">
-          <div className="flex items-center basis-full">
+          <div className="flex items-center basis-full overflow-hidden">
             {openendTabs.map((item, index) => (
-              <div className='basis-52'>
+              <div className='basis-52 truncate'>
                 <div
                   key={index}
-                  className="bg-neutral-900 rounded-md flex-1 flex h-8 ml-2 items-center p-1 justify-between cursor-pointer"
+                  className="bg-neutral-900 rounded-md flex-1 flex h-8 ml-2 items-center p-1 justify-between cursor-pointer overflow-hidden"
                   onClick={() => setActiveTab(index)}
                 >
-                  <div className='flex items-center'>
+                  <div className='flex items-center flex-1 overflow-hidden'>
                     <img className="object-scale-down h-8 w-8 mr-1" src={item.icon} alt="icon" />
-                    <p className="text-sm">{item.title}</p>
+                    <p className="text-sm flex-1">{item.title}</p>
                   </div>
                   <div className='flex items-center mr-2' onClick={(e) => {
                     e.stopPropagation(); // Prevent triggering the tab click
