@@ -30,7 +30,9 @@ export default function Browser({
     setActiveTab(activeTab)
   }, [activeTab]);
 
-
+  useEffect(()=>{
+    setActiveTab(openendTabs.length - 1)
+  },[openendTabs])
 
   if (isMinimized) {
     return null;
@@ -57,12 +59,14 @@ export default function Browser({
               <div className='basis-52 truncate'>
                 <div
                   key={index}
-                  className="bg-neutral-900 rounded-md flex-1 flex h-8 ml-2 items-center p-1 justify-between cursor-pointer overflow-hidden"
+                  className={`rounded-md flex-1 flex h-8 ml-2 items-center p-1 justify-between cursor-pointer overflow-hidden ${
+                    activeTab === index ? 'bg-neutral-800' : 'bg-neutral-900'
+                  }`}
                   onClick={() => setActiveTab(index)}
                 >
                   <div className='flex items-center flex-1 overflow-hidden'>
                     <img className="object-scale-down h-8 w-8 mr-1" src={item.icon} alt="icon" />
-                    <p className="text-sm flex-1">{item.title}</p>
+                    <p className="text-sm flex-1 truncate">{item.title}</p>
                   </div>
                   <div className='flex items-center mr-2' onClick={(e) => {
                     e.stopPropagation(); // Prevent triggering the tab click
