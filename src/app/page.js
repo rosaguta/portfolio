@@ -24,7 +24,6 @@ export default function Home() {
   }, []);
 
   useEffect(()=>{
-    console.log(tabsOpenend.length)
     if(tabsOpenend.length === 0){
       setIsBrowserActive(false)
     }

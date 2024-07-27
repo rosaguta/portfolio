@@ -59,7 +59,7 @@ export default function BottomBar({ BrowserActive, handleBrowserVisibility }) {
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: 25, opacity: 0 }}
                         transition={{ duration: 0.20 }}
-                        className="bottom-20 right-12 absolute">
+                        className="bottom-20 right-12 absolute z-40">
                         <Socials />
                     </motion.div>
                 )}
@@ -70,7 +70,7 @@ export default function BottomBar({ BrowserActive, handleBrowserVisibility }) {
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: 25, opacity: 0 }}
                         transition={{ duration: 0.20 }}
-                        className="bottom-20 right-10 absolute">
+                        className="bottom-20 right-10 absolute z-40">
                         <Music />
                     </motion.div>
                 )}
