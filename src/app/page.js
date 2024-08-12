@@ -89,7 +89,7 @@ export default function Home() {
               </div>
             )}
             <div className='relative grid grid-rows-5 grid-flow-col justify-items-center py-12 h-screen w-screen z-10'>
-              <div className="w-24 justify-center items-center text-center cursor-pointer" onClick={() => handleTabClick({ pathKey: 'authentication', icon: "/Roseicon.png", title: "authentication" })}>
+              <div className="w-24 justify-center items-center text-center cursor-pointer" onClick={() => handleTabClick({ pathKey: 'about_me', icon: "/Roseicon.png", title: "About me" })}>
                 <img src="/Roseicon.png" alt="test"></img>
                 <p className='m-2'>About.me</p>
               </div>

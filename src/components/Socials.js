@@ -16,7 +16,7 @@ export default function Socials() {
         navigator.clipboard.writeText(username);
         setTooltip('Copied!');
         setShowTooltip(true);
-        setTimeout(() => setShowTooltip(false), 2000); // Hide tooltip after 2 seconds
+        setTimeout(() => setShowTooltip(false), 2000);
     };
 
     return (

@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic';
 
 const MdxComponent = ({pathKey}) =>{
   const mdxFiles = {
-    'authentication': () => import('../markdown/authentication.mdx'),
+    'about_me': () => import('../markdown/about_me.mdx'),
     'smtindifferent': () => import('../markdown/smtindifferent.mdx')
   };
   
