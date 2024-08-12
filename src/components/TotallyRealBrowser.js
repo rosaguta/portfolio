@@ -32,6 +32,7 @@ export default function Browser({
 
   useEffect(()=>{
     setActiveTab(openendTabs.length - 1)
+    console.log(openendTabs)
   },[openendTabs])
 
   if (isMinimized) {
@@ -56,7 +57,7 @@ export default function Browser({
         <div className="bg-neutral-950 rounded-t-md justify-between flex w-full h-12">
           <div className="flex items-center basis-full overflow-hidden">
             {openendTabs.map((item, index) => (
-              <div className='basis-52 truncate' Key={index}>
+              <div className='basis-52 truncate' key={index}>
                 <div className={`rounded-md flex-1 flex h-8 ml-2 items-center p-1 justify-between cursor-pointer overflow-hidden ${
                     activeTab === index ? 'bg-neutral-800' : 'bg-neutral-900'
                   }`}

@@ -44,6 +44,7 @@ export default function Home() {
 
   const handleTabClick = (tabclicked) => {
     setIsBrowserActive(true);
+    setIsBrowserMinimized(false)
     setTabOpenend(oldArr => [...oldArr, tabclicked]);
   };
 
@@ -81,7 +82,6 @@ export default function Home() {
                             openendTabs={tabsOpenend}
                             setTabOpened={setTabOpenend}
                           />)}
-
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -91,29 +91,16 @@ export default function Home() {
             <div className='relative grid grid-rows-5 grid-flow-col justify-items-center py-12 h-screen w-screen z-10'>
               <div className="w-24 justify-center items-center text-center cursor-pointer" onClick={() => handleTabClick({ pathKey: 'about_me', icon: "/Roseicon.png", title: "About me" })}>
                 <img src="/Roseicon.png" alt="test"></img>
-                <p className='m-2'>About.me</p>
+                <p className='m-2 text-sm'>About.me</p>
               </div>
-              <div className="w-24 justify-center items-center text-center cursor-pointer" onClick={() => handleTabClick({ pathKey: 'smtindifferent', icon: "/Roseicon.png", title: "WOAH" })}>
-                <img src="/Roseicon.png" alt="test"></img>
-                <p className='m-2'>ME :3</p>
+              <div className="w-20 justify-center items-center text-center cursor-pointer" onClick={() => handleTabClick({ pathKey: 'portfolio', icon: "/Rose.png", title: "Porfolio" })}>
+                <img src="/Rose.png" alt="test"></img>
+                <p className='m-2 text-sm break-normal'>Porfolio. project</p>
               </div>
-              <div className="w-24 justify-center items-center text-center">
-                <img src="/Roseicon.png" alt="test"></img>
-                <p className='m-2'>ME :3</p>
-              </div>
-              <div className="w-24 justify-center items-center text-center">
-                <img src="/Roseicon.png" alt="test"></img>
-                <p className='m-2'>ME :3</p>
-              </div>
-              <div className="w-24 justify-center items-center text-center">
-                <img src="/Roseicon.png" alt="test"></img>
-                <p className='m-2'>ME :3</p>
-              </div>
+              <div></div>
+              <div></div>
 
-              <div className="w-24 justify-center items-center text-center cursor-pointer" onClick={() => handleTabClick({ path: "../markdown/somethingelse.mdx", icon: "/twitteer.png", title: "somethingelse" })}>
-                <img src="/Roseicon.png" alt="test"></img>
-                <p className='m-2'>ME :3</p>
-              </div>
+              <div></div>
               <div></div>
               <div></div>
               <div></div>
