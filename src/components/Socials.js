@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
+import discord from '../../public/discord.png'
+import github_edit from '../../public/github_edit.png'
+import Steam_icon_logo from '../../public/Steam_icon_logo.svg.png'
+import twitteer from '../../public/twitteer.png'
 
 export default function Socials() {
     const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -6,10 +11,10 @@ export default function Socials() {
     const [showTooltip, setShowTooltip] = useState(false);
 
     const socials = [
-        { src: '/discord.png', alt: 'Discord', username: 'digital.rose' },
-        { src: '/github_edit.png', alt: 'GitHub', username: 'rosaguta' },
-        { src: '/Steam_icon_logo.svg.png', alt: 'Steam', username: 'rosaguta' },
-        { src: '/twitteer.png', alt: 'Twitter', username: '@DigitalRose_UwU' },
+        { src: discord, alt: 'Discord', username: 'digital.rose' },
+        { src: github_edit, alt: 'GitHub', username: 'rosaguta' },
+        { src: Steam_icon_logo, alt: 'Steam', username: 'rosaguta' },
+        { src: twitteer, alt: 'Twitter', username: '@DigitalRose_UwU' },
     ];
 
     const copyToClipboard = (username) => {
@@ -35,7 +40,7 @@ export default function Socials() {
                             onMouseLeave={() => setHoveredIndex(null)}
                             onClick={() => copyToClipboard(social.username)}
                         >
-                            <img src={social.src} className="object-scale-down h-12 w-12" alt={social.alt}></img>
+                            <Image src={social.src} className="object-scale-down h-12 w-12" alt={social.alt}></Image>
                             {hoveredIndex === index && (
                                 <div className="absolute bg-black text-white text-xs rounded px-2 py-1 -mt-20">
                                     {tooltip}

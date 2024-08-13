@@ -7,6 +7,11 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import useWindowDimensions from '@/functions/useWindowDimensions';
 import '../styles/removescroll.css'
+import Image from 'next/image';
+import me from '../../public/Roseicon.png'
+import roseflower from '../../public/Rose.png'
+
+
 
 export default function Home() {
   const [showBootScreen, setShowBootScreen] = useState(true);
@@ -90,11 +95,11 @@ export default function Home() {
             )}
             <div className='relative grid grid-rows-5 grid-flow-col justify-items-center py-12 h-screen w-screen z-10'>
               <div className="w-24 justify-center items-center text-center cursor-pointer" onClick={() => handleTabClick({ pathKey: 'about_me', icon: "/Roseicon.png", title: "About me" })}>
-                <img src="/Roseicon.png" alt="test"></img>
+                <Image src={me} alt="test"></Image>
                 <p className='m-2 text-sm'>About.me</p>
               </div>
               <div className="w-20 justify-center items-center text-center cursor-pointer" onClick={() => handleTabClick({ pathKey: 'portfolio', icon: "/Rose.png", title: "Porfolio" })}>
-                <img src="/Rose.png" alt="test"></img>
+                <Image src={roseflower} alt="test"></Image>
                 <p className='m-2 text-sm break-normal'>Porfolio. project</p>
               </div>
               <div></div>
