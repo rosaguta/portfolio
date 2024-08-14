@@ -32,7 +32,7 @@ export default function Socials() {
                     {socials.map((social, index) => (
                         <div
                             key={index}
-                            className="relative w-full h-auto flex items-center justify-center"
+                            className="relative w-full h-auto flex items-center justify-center cursor-pointer"
                             onMouseEnter={() => {
                                 setHoveredIndex(index);
                                 setTooltip(social.username);
