@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';;
 import MdxComponent from './MdxComponent';
 import '../styles/removescroll.css'
 
+
 export default function Browser({
   handleCloseClick,
   handleSizeClick,
@@ -32,7 +33,6 @@ export default function Browser({
 
   useEffect(()=>{
     setActiveTab(openendTabs.length - 1)
-    console.log(openendTabs)
   },[openendTabs])
 
   if (isMinimized) {
