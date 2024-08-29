@@ -1,0 +1,29 @@
+# This is a Bitbucket Pipeline configuration file.
+# It defines the pipeline to build a Docker image and push it to a custom registry.
+
+image: atlassian/default-image:latest
+
+pipelines:
+  default:
+    - step:
+        name: Build and Push Docker Image
+        caches:
+          - docker
+        script:
+          # Login to the custom Docker registry
+          - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD $DOCKER_REGISTRY_URL
+          
+          # Build the Docker image
+          - docker build -t $DOCKER_REGISTRY_URL/$DOCKER_REPO_NAME:$BITBUCKET_COMMIT .
+          
+          # Push the Docker image to the registry
+          - docker push $DOCKER_REGISTRY_URL/$DOCKER_REPO_NAME:$BITBUCKET_COMMIT
+
+        services:
+          - docker
+
+definitions:
+  services:
+    docker:
+      memory: 1024
+
