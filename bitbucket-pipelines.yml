@@ -23,3 +23,8 @@ pipelines:
 
         services:
           - docker
+          
+definitions:
+  services:
+    docker:
+      memory: 2048
