@@ -14,7 +14,7 @@ pipelines:
           - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD $DOCKER_REGISTRY_URL
           
           # Build the Docker image
-          - docker build -t $DOCKER_REGISTRY_URL/$DOCKER_REPO_NAME:$BITBUCKET_COMMIT .
+          - docker build -t $DOCKER_REGISTRY_URL/$DOCKER_REPO_NAME:latest .
           
           # Push the Docker image to the registry
           - docker push $DOCKER_REGISTRY_URL/$DOCKER_REPO_NAME:$BITBUCKET_COMMIT
