@@ -17,7 +17,7 @@ pipelines:
           - docker build -t $DOCKER_REGISTRY_URL/$DOCKER_REPO_NAME:latest .
           
           # Push the Docker image to the registry
-          - docker push $DOCKER_REGISTRY_URL/$DOCKER_REPO_NAME:$BITBUCKET_COMMIT
+          - docker push $DOCKER_REGISTRY_URL/$DOCKER_REPO_NAME:latest
 
         services:
           - docker
