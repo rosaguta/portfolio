@@ -6,6 +6,8 @@ image: atlassian/default-image:latest
 pipelines:
   default:
     - step:
+        runs-on:
+          - rose.runner
         name: Build and Push Docker Image
         caches:
           - docker
@@ -21,9 +23,3 @@ pipelines:
 
         services:
           - docker
-
-definitions:
-  services:
-    docker:
-      memory: 2048
-
