@@ -10,6 +10,7 @@ import '../styles/removescroll.css'
 import Image from 'next/image';
 import me from '../../public/Roseicon.png'
 import roseflower from '../../public/Rose.png'
+import Quote from '../../public/quote.png'
 
 
 
@@ -102,7 +103,10 @@ export default function Home() {
                 <Image src={roseflower} alt="test"></Image>
                 <p className='m-2 text-sm break-normal'>Porfolio. project</p>
               </div>
-              <div></div>
+              <div className="w-20 justify-center items-center text-center cursor-pointer" onClick={() => handleTabClick({ pathKey: 'quotes', icon: "/quote.png", title: "Quotes project" })}>
+                <Image src={Quote} alt="test"></Image>
+                <p className='m-2 text-sm break-normal'>Quotes. project</p>
+              </div>
               <div></div>
 
               <div></div>

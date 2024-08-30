@@ -1,0 +1,25 @@
+# Quotes project
+
+## Why?
+The reason why i created this project is because me and my friends say a lot of random / wierd stuff (very quirky i know). I thought it would be fun to store the quotes in some way and make them accessable / makeable in some way shape or form.
+
+This project consists of multiple smaller applicatons that combine the whole project as a whole. I have made the **C#** Backend in Combination with a **MongoDB** Database, A **Nextjs** frontend and a **Python** discord bot.
+
+## Backend
+
+I started off with creating the backend of the project and setting up a MongoDB database. For the backend i used C# as stated before and i started making the REST API. This is the project structure that i set up and that i used for the project
+
+```
+quotes-backend/
+├── DAL             # Data Access Layer
+├── DTO             # Data Transfer Object(s)
+├── Factory         # Providing the DAL
+├── Interface
+├── Logic
+└── quotes-backend  # swagger UI
+```
+
+This REST API has a Swagger web interface built in that will adjust to my needs. I also can edit the the interface a bit so it looks like this:
+<img src='/webapi.png' style={{width: "70%", height: "70%"}}/>
+
+There are small descriptions per function on what it does. 

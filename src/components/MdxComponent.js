@@ -8,7 +8,8 @@ import dynamic from 'next/dynamic';
 const MdxComponent = ({pathKey}) =>{
   const mdxFiles = {
     'about_me': () => import('../markdown/about_me.mdx'),
-    'portfolio': () => import('../markdown/portfolio.mdx')
+    'portfolio': () => import('../markdown/portfolio.mdx'),
+    'quotes': () => import('../markdown/quotes.mdx')
 
   };
   
