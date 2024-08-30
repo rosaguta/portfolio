@@ -20,6 +20,10 @@ quotes-backend/
 ```
 
 This REST API has a Swagger web interface built in that will adjust to my needs. I also can edit the the interface a bit so it looks like this:
-<img src='/webapi.png' style={{width: "70%", height: "70%"}}/>
+<p align='center'>
+    <img src='/webapi.png' style={{width: "60%", height: "60%"}}/>
+    https://quotesapi.divsphere.net/swagger/index.html
+</p>
 
-There are small descriptions per function on what it does. 
+
+There are small descriptions per function on what it does. As you might have seen, there is a **Requires AUTH** text in the **POST** method, I implemented this because otherwise everyone would be able to update the database and that is just bad. The authentication returns a JWT token if the credentials are correct. Once the JWT is returned and the user uses this token, they will be able to update, insert and delete records if needed.
