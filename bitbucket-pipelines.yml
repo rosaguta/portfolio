@@ -13,7 +13,7 @@ pipelines:
           - docker
         script:
           # Login to the custom Docker registry
-          - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD $DOCKER_REGISTRY_URL
+          - docker login -u '$DOCKER_USERNAME' -p '$DOCKER_PASSWORD' $DOCKER_REGISTRY_URL
           
           # Build the Docker image
           - docker build -t $DOCKER_REGISTRY_URL/$DOCKER_REPO_NAME:latest .
