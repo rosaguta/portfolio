@@ -12,14 +12,9 @@ pipelines:
         caches:
           - docker
         script:
-          # Login to the custom Docker registry
-          - '$DOCKER_PASSWORD' | docker login -u '$DOCKER_USERNAME' --password-stdin $DOCKER_REGISTRY_URL
-          
-          # Build the Docker image
-          - docker build -t $DOCKER_REGISTRY_URL/$DOCKER_REPO_NAME:latest .
-          
-          # Push the Docker image to the registry
-          - docker push $DOCKER_REGISTRY_URL/$DOCKER_REPO_NAME:latest
+         - echo '$DOCKER_PASSWORD' | docker login -u '$DOCKER_USERNAME' --password-stdin $DOCKER_REGISTRY_URL
+         - docker build -t $DOCKER_REGISTRY_URL/$DOCKER_REPO_NAME:latest .
+         - docker push $DOCKER_REGISTRY_URL/$DOCKER_REPO_NAME:latest
 
         services:
           - docker
