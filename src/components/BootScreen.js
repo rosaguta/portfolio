@@ -87,25 +87,28 @@ Deploying positivity framework\t\t[ok]`.split('\n');
         <div>
           {bootlines.map((el, i) => (
             <motion.pre
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                duration: 0.05,
-                delay: delays[i],
-              }}
-              key={i}
-              className={"lg:text-xl pt-2 pl-2 absolute"}
-              style={{ top: `${i * 2}rem` }}
-            >
-              {el.includes('ok') ? (
-                <>
-                  {el.split('ok')[0]}
-                  <span className="text-green-500">ok</span>
-                  {el.split('ok')[1]}
-                </>
-              ) : (
-                el + "\n")}
-            </motion.pre>
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 0.05,
+              delay: delays[i],
+            }}
+            key={i}
+            className="text-[10px] lg:text-xl pt-2 pl-2 absolute"
+            style={{
+              top: window.innerWidth < 640 ? `${i * 1.5}rem` : `${i * 2}rem`
+            }}
+          >
+            {el.includes('ok') ? (
+              <>
+                {el.split('ok')[0]}
+                <span className="text-green-500">ok</span>
+                {el.split('ok')[1]}
+              </>
+            ) : (
+              el + "\n"
+            )}
+          </motion.pre>
           ))}
         </div>
       ) : (
