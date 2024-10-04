@@ -99,11 +99,11 @@ export default function Home() {
                 <Image src={me} alt="test"></Image>
                 <p className='m-2 text-sm'>About.me</p>
               </div>
-              <div className="w-20 justify-center items-center text-center cursor-pointer" onClick={() => handleTabClick({ pathKey: 'portfolio', icon: "/Rose.png", title: "Porfolio" })}>
-                <Image src={roseflower} alt="test"></Image>
+              <div className="w-16 justify-center items-center text-center cursor-pointer" onClick={() => handleTabClick({ pathKey: 'portfolio', icon: "/Rose.png", title: "Porfolio" })}>
+                <Image className='' src={roseflower} alt="test"></Image>
                 <p className='m-2 text-sm break-normal'>Porfolio. project</p>
               </div>
-              <div className="w-20 justify-center items-center text-center cursor-pointer" onClick={() => handleTabClick({ pathKey: 'quotes', icon: "/quote.png", title: "Quotes project" })}>
+              <div className="w-16 justify-center items-center text-center cursor-pointer" onClick={() => handleTabClick({ pathKey: 'quotes', icon: "/quote.png", title: "Quotes project" })}>
                 <Image src={Quote} alt="test"></Image>
                 <p className='m-2 text-sm break-normal'>Quotes. project</p>
               </div>
