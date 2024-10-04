@@ -13,7 +13,7 @@ export default function Browser({
 }) {
   const [activeTab, setActiveTab] = useState(openendTabs.length - 1);
   const [dummyState, setDummyState] = useState(0);
-  const browserStyle = isMaximized ? 'w-full h-[95%]' : 'w-[80%] h-[85%]  md:w-[70%] md:h-[70%]';
+  const browserStyle = isMaximized ? 'w-full h-[95%]' : 'w-[85%] h-[85%]  md:w-[70%] md:h-[70%]';
   const browserCenterStyle = isMaximized ? 'items-baseline' : 'items-center';
 
   useEffect(() => {

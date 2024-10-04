@@ -1,12 +1,14 @@
 "use client"
 import { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion'
+import useIsMobile from '@/functions/useIsMobile'
 import useWindowDimensions from '@/functions/useWindowDimensions.js'
 
 export default function BootScreenAnim() {
   const [loadingText, setLoadingText] = useState('loading');
   const [visible, setVisible] = useState(true);
   const { width, height } = useWindowDimensions();
+  const isMobile = useIsMobile()
   const imgposX = Math.trunc(width / 2);
   const imgposY = Math.trunc((height / 2) - 80);
 
@@ -96,7 +98,7 @@ Deploying positivity framework\t\t[ok]`.split('\n');
             key={i}
             className="text-[10px] lg:text-xl pt-2 pl-2 absolute"
             style={{
-              top: window.innerWidth < 640 ? `${i * 1.5}rem` : `${i * 2}rem`
+               top: isMobile ? `${i * 1.5}rem` : `${i * 2}rem`
             }}
           >
             {el.includes('ok') ? (
@@ -124,7 +126,7 @@ Deploying positivity framework\t\t[ok]`.split('\n');
           <motion.div initial={{ opacity: 0, }}
             animate={{ opacity: 1, scale: 1, }}
             transition={{ duration: 0.2, delay: 2 }}>
-            <p className="mt-4 font-thin font-mono">{loadingText}</p>
+            <p className="mt-4 text-xs md:text-base font-thin font-mono">{loadingText}</p>
           </motion.div>
         </div>
       )}
