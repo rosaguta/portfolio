@@ -146,7 +146,7 @@ export default function Home() {
               <div></div>
             </div>
             <div className="md:hidden block">
-              <TopBar />
+              <TopBar BrowserActive={isBrowserActive} handleBrowserVisibility={handleMinimizeClick}/>
             </div>
             <div className="md:block hidden ">
               <BottomBar BrowserActive={isBrowserActive} handleBrowserVisibility={handleMinimizeClick} />

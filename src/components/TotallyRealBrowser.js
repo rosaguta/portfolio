@@ -42,7 +42,7 @@ export default function Browser({
         <div className="bg-neutral-950 rounded-t-md justify-between flex w-full h-12">
           <div className="flex items-center basis-full overflow-hidden">
             {openendTabs.map((item, index) => (
-              <div className="basis-52 truncate" key={index}>
+              <div className="md:basis-52 truncate" key={index}>
                 <div
                   className={`rounded-md flex h-8 ml-2 items-center p-1 justify-between cursor-pointer overflow-hidden ${
                     activeTab === index ? 'bg-neutral-800' : 'bg-neutral-900'
@@ -50,7 +50,7 @@ export default function Browser({
                   onClick={() => setActiveTab(index)}
                 >
                   <div className="flex items-center flex-1 overflow-hidden">
-                    <img className="object-scale-down h-8 w-8 mr-1" src={item.icon} alt="icon" />
+                    <img className="object-scale-down h-6 w-6 md:h-8 md:w-8 md:mr-1" src={item.icon} alt="icon" />
                     <p className="text-sm flex-1 truncate hidden md:block">{item.title}</p>
                   </div>
                   <div
