@@ -1,23 +1,35 @@
-import React from 'react';
-import dynamic from 'next/dynamic';
+import React, { useEffect, useState } from 'react';
+import { MDXRemote } from 'next-mdx-remote'; // Import for rendering MDX content
+import { getMdxContent } from '@/server/mdxLoader';
+import { remark } from 'remark';
+import remarkGfm from 'remark-gfm';
+import { MDXEmbedProvider } from 'mdx-embed';
 
-// const MDXContent = dynamic(()=>import('../markdown/authentication.mdx'))
+const MdxComponent = ({ pathKey }) => {
+  const [MDXContent, setMDXContent] = useState(null);
 
-
-
-const MdxComponent = ({pathKey}) =>{
   const mdxFiles = {
-    'about_me': () => import('../markdown/about_me.mdx'),
-    'portfolio': () => import('../markdown/portfolio.mdx'),
-    'quotes': () => import('../markdown/quotes.mdx')
+    'about_me': 'src/markdown/about_me.mdx',
+    'portfolio': 'src/markdown/portfolio.mdx',
+    'quotes': 'src/markdown/quotes.mdx'
 
   };
-  
-  const MDXContent = dynamic(mdxFiles[pathKey]);
-    return(
-    <div className='!max-w-none prose prose-invert w-full relative'>
-     {MDXContent ? <MDXContent /> : <p>Loading...</p>}
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const content = await getMdxContent(mdxFiles[pathKey]);
+      setMDXContent(content);
+    };
+    fetchData();
+  }, [pathKey]);
+
+  return (
+    <div className="!max-w-none prose prose-invert w-full relative">
+      <MDXEmbedProvider>
+        {MDXContent ? <MDXRemote {...MDXContent} /> : <p>Loading...</p>}
+      </MDXEmbedProvider>
     </div>
-  )
-}
-export default MdxComponent
+  );
+};
+
+export default MdxComponent;
