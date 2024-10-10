@@ -24,6 +24,7 @@ export default function RootLayout({ children }) {
       <link rel="preload" as="image" href="firefox.png" />
       <link rel="preload" as="image" href="Steam_icon_logo.svg.png" />
       <link rel="preload" as="image" href="speakericon.png" />
+      <link rel="preload" as="image" href="aca.png"/>
       <body className={inter.className}>{children}</body>
     </html>
   );
