@@ -9,9 +9,9 @@ const MdxComponent = ({ pathKey }) => {
   const [MDXContent, setMDXContent] = useState(null);
 
   const mdxFiles = {
-    'about_me': 'src/markdown/about_me.mdx',
-    'portfolio': 'src/markdown/portfolio.mdx',
-    'quotes': 'src/markdown/quotes.mdx'
+    'about_me': '/markdown/about_me.mdx',
+    'portfolio': '/markdown/portfolio.mdx',
+    'quotes': '/markdown/quotes.mdx'
 
   };
 
