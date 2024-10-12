@@ -22,11 +22,15 @@ When i was done designing this website and showcasing it to my friends, It was t
 
 ## Building the site
 
+A big part of this site is build using [Framer motion](https://www.framer.com/motion/) (this library got recommended to me by a friend). This allows me to do the the intro animation that you see in the beginning but also the smaller animations like the socials and the browser.
+
 ### Intro animation
+<div className='flex flex-col md:flex-row'>
+    <video src='/intro.mp4' controls="play" className='h-40 md:h-96 object-scale-down' loop />
+    <img src='https://www.codeproject.com/KB/Articles/839230/Image3-Qemu.gif'  className='h-40 md:h-96   object-scale-down' />
+</div>
+Fistly i started building the *startup* animation upon viewing this website. As you have noticed, a Linux styled animation plays when viewing this website. This intro animation is inspired by the raspberry pi startup (the 2nd video). The Idea of having the logo displayed on the startup inspired me to create my own startup animation which you can see on in the first video, or by just reloading the page. 
 
-{/* <video controls="controls" height='400'>
-    <source src="/intro.mp4"/>
-</video> */}
+### The Desktop landing page
 
-
-Fistly i started building the *startup* animation upon viewing this website. As you have noticed, a Linux styled animation plays when viewing this website. A part of this site is build using [Framer motion](https://www.framer.com/motion/) (this library got recommended to me by a friend). This allows me to do the the intro animation that you see in the beginning but also the smaller animations like the socials and the browser.
+I wanted to make the website feel like an actual desktop so i created the desktop page as you view it now by minimizing this (built-in) browser. There isnt alot of excting stuff to view hence its a desktop. You can see the different *apps* on the page and the taskbar at the bottom with a few icons. these icons have a reference to my 
