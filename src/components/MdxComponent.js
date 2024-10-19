@@ -24,7 +24,7 @@ const MdxComponent = ({ pathKey }) => {
   }, [pathKey]);
 
   return (
-    <div className="!max-w-none prose prose-invert w-full relative">
+    <div className="!max-w-none prose prose-invert w-full md:text-lg relative">
       <MDXEmbedProvider>
         {MDXContent ? <MDXRemote {...MDXContent} /> : <p>Loading...</p>}
       </MDXEmbedProvider>
