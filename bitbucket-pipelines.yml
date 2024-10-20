@@ -19,10 +19,11 @@ pipelines:
         services:
           - docker
     - step:
-      name: Deploy to Portainer
-      deployment: test
-      # trigger: manual  # Uncomment to make this a manual deployment.
-      script:
+        name: Deploy to Portainer
+        runs-on:
+          - rose.runner
+        # trigger: manual  # Uncomment to make this a manual deployment.
+        script:
         - echo "Deploying to Portainer"
         - curl  -X POST 'https://docker.digitalindividuals.com/api/webhooks/81111e11-2002-4b23-a3b0-949650fc8a16'
 definitions:
