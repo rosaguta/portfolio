@@ -3,6 +3,8 @@ import Socials from "./Socials";
 import { motion, AnimatePresence } from "framer-motion";
 import Music from './Music';
 import StartMenu from './StartMenu';
+import { Tooltip, TooltipTrigger, TooltipContent } from './ui/tooltip';
+import { TooltipProvider } from '@radix-ui/react-tooltip';
 
 
 export default function BottomBar({ BrowserActive, handleBrowserVisibility }) {
@@ -30,23 +32,46 @@ export default function BottomBar({ BrowserActive, handleBrowserVisibility }) {
                     <div className='hover:bg-opacity-50 transition duration-150 ease-in-out hover:bg-neutral-700 rounded-full p-1.5 w-14 h-12 flex items-center' onClick={handleStartMenuCick}>
                         <img src="/Rose.png" className='p-1'></img>
                     </div>
-                    {BrowserActive &&(
+                    {BrowserActive && (
                         <div className='hover:bg-opacity-50 transition duration-150 ease-in-out hover:bg-neutral-700 rounded-full p-1.5 w-14 h-12 flex items-center' onClick={handleBrowserVisibility}>
                             <img src="/firefox.png" className='p-1'></img>
                         </div>
                     )}
                 </div>
                 <div className='flex mr-4 '>
-                    <div className='flex items-center w-12 h-12'>
-                        <p className='text-lg'>NLD</p>
-                    </div>
-                    <div className='hover:bg-opacity-50 transition duration-150 ease-in-out hover:bg-neutral-700 rounded-full w-12 h-12 flex items-center justify-center' onClick={handleEthernetClick}>
-                        <img src="/etherneticon_edit.png" className='object-scale-down h-9' ></img>
-                    </div>
+                    <TooltipProvider>
+                        <Tooltip>
+                            <TooltipTrigger>
+                                <div className='flex items-center w-20 h-12'>
+                                    <p className=''>NLD/ENG</p>
+                                </div>
+                            </TooltipTrigger>
+                            <TooltipContent className="bg-black text-white">
+                                Languages I can speak
+                            </TooltipContent>
+                        </Tooltip>
+                        <Tooltip>
+                            <TooltipTrigger>
+                                <div className='hover:bg-opacity-50 transition duration-150 ease-in-out hover:bg-neutral-700 rounded-full w-12 h-12 flex items-center justify-center' onClick={handleEthernetClick}>
+                                    <img src="/etherneticon_edit.png" className='object-scale-down h-9' ></img>
+                                </div>
+                            </TooltipTrigger>
+                            <TooltipContent className="bg-black text-white">
+                                My socials
+                            </TooltipContent>
+                        </Tooltip>
 
-                    <div className='hover:bg-opacity-50 transition duration-150 ease-in-out hover:bg-neutral-700 rounded-full w-12 h-12 flex items-center justify-center' onClick={handleMusicClick}>
-                        <img src="/speakericon.png" className='object-scale-down h-7' ></img>
-                    </div>
+                        <Tooltip>
+                            <TooltipTrigger>
+                                <div className='hover:bg-opacity-50 transition duration-150 ease-in-out hover:bg-neutral-700 rounded-full w-12 h-12 flex items-center justify-center' onClick={handleMusicClick}>
+                                    <img src="/speakericon.png" className='object-scale-down h-7' ></img>
+                                </div>
+                            </TooltipTrigger>
+                            <TooltipContent className="bg-black text-white">
+                                My music taste (DnB)
+                            </TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
                     <div className='hover:bg-opacity-50 transition duration-150 ease-in-out hover:bg-neutral-700 rounded-full p-2 flex items-center'>
                         <p className='text-lg'>{date}</p>
                     </div>
@@ -72,6 +97,7 @@ export default function BottomBar({ BrowserActive, handleBrowserVisibility }) {
                         transition={{ duration: 0.20 }}
                         className="bottom-20 right-10 absolute z-40">
                         <Music />
+
                     </motion.div>
                 )}
             </AnimatePresence>
