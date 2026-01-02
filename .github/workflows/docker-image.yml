@@ -37,5 +37,4 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/portfolio:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/portfolio:${{ github.sha }}
           labels: ${{ steps.meta.outputs.labels }}
