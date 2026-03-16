@@ -22,6 +22,8 @@ const nextConfig = {
   images : {
     domains : ['localhost'] // <== Domain name
   },
+  turbopack: {
+  },
   webpack: (config, { dev, isServer }) => {
     // if (!dev && !isServer) {
     //   Object.assign(config.resolve.alias, {
