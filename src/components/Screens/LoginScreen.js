@@ -31,7 +31,7 @@ export default function LoginScreenAnim() {
     <div className="relative h-screen">
       <div className="absolute inset-0 bg-[url('/Rosey-stars.png')] bg-cover bg-center blur-md" />
       <div className="relative flex space-y-4 flex-col items-center justify-center h-full">
-        <div className='font-mono text-9xl text-rose-100 opacity-80 h-full pt-36'> {displayTime} </div>
+        <div className='font-mono text-7xl md:text-9xl text-rose-100 opacity-80 h-full pt-36'> {displayTime} </div>
         <div className='pb-5'>
           <Image src={Rose_Headpat} width={150} height={150}/>
         </div>
