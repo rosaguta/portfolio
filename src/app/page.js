@@ -1,5 +1,5 @@
 "use client";
-import BootScreenAnim from '@/components/BootScreen';
+import BootScreenAnim from '@/components/Screens/BootScreen';
 import BottomBar from '@/components/BottomBar';
 import TopBar from '@/components/TopBar';
 import Browser from '@/components/TotallyRealBrowser';
