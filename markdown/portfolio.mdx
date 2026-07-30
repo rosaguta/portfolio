@@ -14,13 +14,13 @@ After some brainstorming, I landed on the concept of an **operating-system–sty
 
 Before writing any code, I translated the ideas in my head into a visual design using Figma:
 
-<iframe
-  style={{ width: '100%', height: '500px' }}
-  loading="lazy"
-  allowFullScreen
-  src={`https://www.figma.com/embed?embed_host=mdx&url=https://www.figma.com/file/5swI4weAXWIjffV6yqX2Hl/portfolio-ofzo?t=1hTjnSF25JjPZy13-0`}
-  title="Design"
-/>
+<iframe style={{border: '1px solid rgba(0, 0, 0, 0.1)'}} 
+  width="100%" height="600" 
+  title='design'
+  loading='lazy'
+  src="https://embed.figma.com/design/5swI4weAXWIjffV6yqX2Hl/Portfolio-Design?node-id=0-1&embed-host=share" 
+  allowFullScreen>
+  </iframe>
 
 The designs created in Figma were not meant to be fully interactive prototypes, but rather a collection of visual ideas and layout concepts. They show the different *views* a user might encounter when navigating the website such as the default desktop view or specific application windows like the network panel.
 
@@ -37,13 +37,13 @@ A large part of the site is built using [Framer Motion](https://www.framer.com/m
 ### Intro animation
 
 <div className='flex flex-col md:flex-row'>
-  <video src='/intro.mp4' controls="play" className='h-40 md:h-96 object-scale-down' loop />
-  <img src='https://www.codeproject.com/KB/Articles/839230/Image3-Qemu.gif' className='h-40 md:h-96 object-scale-down' />
+  <video src='/intro.mp4' controls="play" className='h-40 md:h-96 object-scale-down' autoPlay loop />
+  <img src='/rasp.gif' className='h-40 md:h-96 object-scale-down' />
 </div>
 
 The first thing I worked on was the *startup* animation that plays when the website loads. This animation is intentionally styled after a Linux boot sequence. The inspiration came from the Raspberry Pi startup animation (shown in the second visual above), where a logo is displayed during system initialization.
 
-That idea motivated me to design a custom startup sequence for my own “OS-style” website. The result is the intro animation shown in the first video above, which can also be replayed by refreshing the page. This animation helps immediately set the tone of the website and reinforces the operating system concept from the first interaction.
+That idea motivated me to design a custom startup sequence for my own “OS-style” website. The result is the intro animation shown in the first video above, which can also be replayed by refreshing the website. This animation helps immediately set the tone of the website and reinforces the operating system concept from the first interaction.
 
 ---
 
@@ -64,16 +64,6 @@ This project is built using **Next.js** as the main framework. Next.js was chose
 For animations and transitions, **Framer Motion** is used extensively throughout the project. Animations are not treated as decorative extras, but as a core part of the user experience. Window transitions, desktop interactions, and the startup sequence all rely on Framer Motion to remain smooth and predictable while still feeling responsive.
 
 Styling is handled directly within the React component structure, keeping visual logic close to functional logic. This makes it easier to reason about UI state, animations, and layout changes together.
-
----
-
-## Application structure
-
-The application is structured around reusable UI components that represent familiar operating system concepts such as windows, desktop icons, and taskbar items. Each of these components encapsulates its own behavior, visual state, and animations.
-
-Rather than navigating between traditional pages, most interactions happen within the same view. Application windows are mounted and unmounted dynamically, which reinforces the illusion of a desktop environment instead of a static website with page reloads.
-
-State is handled locally where possible, keeping complexity low and avoiding unnecessary global state. This makes the behavior of each “application” window easier to reason about and modify independently.
 
 ---
 
