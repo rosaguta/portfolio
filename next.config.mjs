@@ -17,10 +17,12 @@ const nextConfig = {
   transpilePackages: ['next-mdx-remote'],
   output: 'standalone',
   reactStrictMode: true,
-  swcMinify: true,
+  // swcMinify: true,
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
-  images : {
-    domains : ['localhost'] // <== Domain name
+  images: {
+    remotePatterns: [
+      new URL('https://rosevanleeuwen.com')
+    ]
   },
   turbopack: {
   },
