@@ -10,10 +10,8 @@ export async function getMdxContent(filePath) {
   const fullPath = path.join(process.cwd(), filePath);
   const fileContent = fs.readFileSync(fullPath, 'utf8');
   
-  // Optional: Parse front-matter if your file contains it
   const { content } = matter(fileContent);
   
-  // Process and serialize MDX content
   const mdxSource = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [remarkGfm],
