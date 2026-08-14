@@ -30,7 +30,7 @@ export default function Socials() {
             src: LinkedIn,
             alt: 'LinkedIn',
             username: 'Rose van Leeuwen',
-            url: 'www.linkedin.com/in/rose-van-leeuwen-0841021b9',
+            url: 'https://www.linkedin.com/in/rose-van-leeuwen-0841021b9',
         },
     ];
 
