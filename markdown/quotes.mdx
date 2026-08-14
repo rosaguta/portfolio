@@ -20,8 +20,12 @@ quotes-backend/
 
 This REST API has a Swagger web interface built in that will adjust to my needs. I also can edit the the interface a bit so it looks like this:
 <img className='w-[75%] object-scale-down' src='/webapi.png'/>
-<p className="truncate">https://quotesapi.rosevanleeuwen.com/swagger/index.html</p>
-
+<a href="https://quotesapi.rosevanleeuwen.com/swagger/index.html" target="_blank" className='italic font-mono'>
+    <span class="inline-flex items-baseline hover:underline">
+        <p>quotes API</p>
+        <LinkIcon /> 
+    </span>
+</a>
 There are small descriptions per function on what it does. As you might have seen, there is a **Requires AUTH** text in the **POST** method, I implemented this because otherwise everyone would be able to update the database and that is just inconvenient. The authentication returns a JWT token if the credentials are correct. Once the JWT is returned and the user uses this token, they will be able to update, insert and delete records if needed.
 
 ### Endpoints
@@ -33,7 +37,22 @@ Regarding the quote related endpoints, The differences between the names serves 
 <DisplayQuoteCount/>
 
 ## Frontend
+<a href="https://quotes.rosevanleeuwen.com/" target="_blank" className='italic font-mono'>
+    <span class="inline-flex items-baseline hover:underline">
+        <p>Quotes website</p>
+        <LinkIcon /> 
+    </span>
+</a>
+The frontend of the application is used for displaying the quotes that got saved in the database. The same app can be used to edit said quotes to fix spelling mistakes or to add context to said quotes. Editing the quotes does require an admin account that only I have. Viewing the quotes also requires a login. This is a private application after all.
 
-<a href="https://quotes.rosevanleeuwen.com/" target="_blank" className='italic font-mono'><p>quotes website</p></a>
+### Game
 
-The frontend of the application is used for displaying the quotes that got saved in the database. The same app can be used to edit said quotes to fix spelling mistakes or to add context to said quotes. Editing the quotes does require an admin account that only I have. 
+In the same web application, I have also attempted to create a kahoot style game. It would be a web based game that connects the clients with SocketIO. I have gained experience with SocketIO with trying to create this game but it is still unfinished.
+
+During development, I have created some video's to show off the work that I had done.
+
+#### Lobby screen
+
+The video shown below 
+
+<video src="/Lobbyscreen.mp4" controls="play" className='h-auto w-5/6'/>
