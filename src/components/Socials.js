@@ -1,54 +1,72 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import discord from '../../public/discord.png'
-import github_edit from '../../public/github_edit.png'
-import Steam_icon_logo from '../../public/Steam_icon_logo.svg.png'
-import twitteer from '../../public/twitteer.png'
+import discord from '../../public/discord.png';
+import github_edit from '../../public/github_edit.png';
+import Steam_icon_logo from '../../public/Steam_icon_logo.svg.png';
+import LinkedIn from '../../public/LinkedIn.png';
+
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 export default function Socials() {
-    const [hoveredIndex, setHoveredIndex] = useState(null);
-    const [tooltip, setTooltip] = useState('');
-    const [showTooltip, setShowTooltip] = useState(false);
-
     const socials = [
-        { src: discord, alt: 'Discord', username: 'digital.rose' },
-        { src: github_edit, alt: 'GitHub', username: 'rosaguta' },
-        { src: Steam_icon_logo, alt: 'Steam', username: 'rosaguta' },
-        { src: twitteer, alt: 'Twitter', username: '@DigitalRose_UwU' },
+        {
+            src: discord,
+            alt: 'Discord',
+            username: 'digital.rose',
+            url: 'https://discord.com/users/230645844142063626',
+        },
+        {
+            src: github_edit,
+            alt: 'GitHub',
+            username: 'rosaguta',
+            url: 'https://github.com/rosaguta',
+        },
+        {
+            src: LinkedIn,
+            alt: 'LinkedIn',
+            username: 'Rose van Leeuwen',
+            url: 'www.linkedin.com/in/rose-van-leeuwen-0841021b9',
+        },
     ];
 
-    const copyToClipboard = (username) => {
-        navigator.clipboard.writeText(username);
-        setTooltip('Copied!');
-        setShowTooltip(true);
-        setTimeout(() => setShowTooltip(false), 2000);
+    const openSocial = (url) => {
+        window.open(url, '_blank', 'noopener,noreferrer');
     };
 
     return (
         <div className="relative bg-neutral-900 bg-opacity-60 w-80 h-52 rounded-[25px] py-4 px-5 backdrop-blur-sm">
             <h1 className="font-bold mb-1">Socials</h1>
+
             <div className="flex items-center justify-center w-full">
-                <div className="grid gap-12 grid-cols-3">
-                    {socials.map((social, index) => (
-                        <div
-                            key={index}
-                            className="relative w-full h-auto flex items-center justify-center cursor-pointer"
-                            onMouseEnter={() => {
-                                setHoveredIndex(index);
-                                setTooltip(social.username);
-                            }}
-                            onMouseLeave={() => setHoveredIndex(null)}
-                            onClick={() => copyToClipboard(social.username)}
-                        >
-                            <Image src={social.src} className="object-scale-down h-12 w-12" alt={social.alt}></Image>
-                            {hoveredIndex === index && (
-                                <div className="absolute bg-black text-white text-xs rounded px-2 py-1 -mt-20">
-                                    {tooltip}
-                                </div>
-                            )}
-                        </div>
-                    ))}
-                </div>
+                <TooltipProvider delayDuration={50}>
+                    <div className="grid gap-12 grid-cols-3">
+                        {socials.map((social, index) => (
+                            <Tooltip key={index}>
+                                <TooltipTrigger asChild>
+                                    <div
+                                        className="relative w-full h-auto flex items-center justify-center cursor-pointer"
+                                        onClick={() => openSocial(social.url)}
+                                    >
+                                        <Image
+                                            src={social.src}
+                                            className="object-scale-down h-12 w-12"
+                                            alt={social.alt}
+                                        />
+                                    </div>
+                                </TooltipTrigger>
+
+                                <TooltipContent className="bg-black text-white">
+                                    {social.username}
+                                </TooltipContent>
+                            </Tooltip>
+                        ))}
+                    </div>
+                </TooltipProvider>
             </div>
         </div>
     );

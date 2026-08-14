@@ -39,13 +39,13 @@ export default function BottomBar({ BrowserActive, handleBrowserVisibility }) {
                     )}
                 </div>
                 <div className='flex mr-4 '>
-                    <TooltipProvider>
+                    <TooltipProvider delayDuration={50}>
                         <Tooltip>
                             <TooltipTrigger>
                                 <div className='flex items-center w-20 h-12'>
                                     <p className=''>NLD/ENG</p>
                                 </div>
-                            </TooltipTrigger>
+                            </TooltipTrigger >
                             <TooltipContent className="bg-black text-white">
                                 Languages I can speak
                             </TooltipContent>
