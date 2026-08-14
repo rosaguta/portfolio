@@ -3,6 +3,7 @@ import { MDXRemote } from 'next-mdx-remote';
 import { getMdxContent } from '@/server/mdxLoader';
 import DisplayQuoteCount from './Mdx/DisplayQuoteCount';
 import { getQuoteCountOnServer } from '@/server/quoteService';
+import { ExternalLink } from 'lucide-react';
 
 const MdxComponent = ({ pathKey }) => {
   const [MDXContent, setMDXContent] = useState(null);
@@ -33,8 +34,8 @@ const MdxComponent = ({ pathKey }) => {
   return (
     <div className="!max-w-none prose prose-invert w-full md:text-lg relative">
       {MDXContent ? <MDXRemote {...MDXContent} components={{
-        DisplayQuoteCount: () => <DisplayQuoteCount quoteCount={QuoteCount[0]} rizzCount={QuoteCount[1]} insultCount={QuoteCount[2]}
-        />
+        DisplayQuoteCount: () => <DisplayQuoteCount quoteCount={QuoteCount[0]} rizzCount={QuoteCount[1]} insultCount={QuoteCount[2]} />,
+        LinkIcon: () => <ExternalLink size={20} className="self-center w-5 h-5 rounded-full mx-1" />
       }}
       /> : <p>Loading...</p>}
     </div>
