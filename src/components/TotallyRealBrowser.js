@@ -13,7 +13,7 @@ export default function Browser({
 }) {
   const [activeTab, setActiveTab] = useState(openendTabs.length - 1);
   const [dummyState, setDummyState] = useState(0);
-  const browserStyle = isMaximized ? 'w-full h-[95%]' : 'w-[85%] h-[85%]  md:w-[70%] md:h-[70%]';
+  const browserStyle = isMaximized ? 'w-full h-[94%]' : 'w-[85%] h-[85%]  md:w-[70%] md:h-[70%]';
   const browserCenterStyle = isMaximized ? 'items-baseline' : 'items-center';
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export default function Browser({
   return (
     <div className={`absolute h-screen w-screen flex justify-center ${browserCenterStyle}`}>
       <div className={`bg-neutral-900 rounded-md z-20 ${browserStyle}`}>
-        <div className="bg-neutral-950 rounded-t-md justify-between flex w-full h-12">
+        <div className="bg-neutral-950 rounded-md justify-between flex w-full h-12">
           <div className="flex items-center basis-full overflow-hidden">
             {openendTabs.map((item, index) => (
               <div className="md:basis-52 truncate" key={index}>
@@ -50,7 +50,7 @@ export default function Browser({
                   onClick={() => setActiveTab(index)}
                 >
                   <div className="flex items-center flex-1 overflow-hidden">
-                    <img className="object-scale-down h-6 w-6 md:h-8 md:w-8 md:mr-1" src={item.icon} alt="icon" />
+                    <img className="object-scale-down h-6 w-6 md:h-7 md:w-7 md:mr-1" src={item.icon} alt="icon" />
                     <p className="text-sm flex-1 truncate hidden md:block">{item.title}</p>
                   </div>
                   <div
