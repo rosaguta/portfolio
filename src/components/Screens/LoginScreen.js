@@ -7,12 +7,13 @@ import Rose_Headpat from "../../../public/Rose_Headpat.png"
 import Image from 'next/image';
 import { Input } from '../ui/input';
 import { motion, useAnimation } from 'framer-motion'
+import { User } from 'lucide-react';
 // used for the intro sequence
 const currentDateTime = new Date()
 const displayTime = new String(currentDateTime.getHours().toString().padStart(2, '0') + ":" + currentDateTime.getMinutes().toString().padStart(2, '0'))
 const passwordCharArray = "BlahajOnSale".split("");
 
-export default function LoginScreenAnim() {
+export default function LoginScreenAnim({onComplete}) {
   const [displayPassword, setDisplayPassword] = useState('');
   const [displayPasswordIndex, setDisplayPasswordIndex] = useState(0);
   const arrowControls = useAnimation()
@@ -35,7 +36,7 @@ export default function LoginScreenAnim() {
           color: ["#ffffff", "#c98fa4", "#ffffff"],
           opacity: [1, 0.5, 1],
           scale: [1, 0.7, 1],
-          transition: { duration: 0.3, easeing: "easeInOutQuad" }
+          transition: {duration: 0.3, easeing: "easeInOutQuad" }
         });
       }, 500)
      
@@ -49,9 +50,14 @@ export default function LoginScreenAnim() {
         backgroundblurControls.start({
           filter: "blur(0px)",
           transistion: {duration: 0.5}
-        })
+        }).finally(onComplete())
       }, 1350)
-       return () => clearTimeout(arrowTimeout, UIchangeTimeout, backgroundblurTimeout)
+
+    return () => {
+      clearTimeout(arrowTimeout);
+      clearTimeout(UIchangeTimeout);
+      clearTimeout(backgroundblurTimeout);
+};
     }
 
   }, [displayPasswordIndex])
@@ -62,7 +68,10 @@ export default function LoginScreenAnim() {
       <motion.div animate={UIChangeControls} className="relative flex space-y-4 flex-col items-center justify-center h-full">
         <div className='font-mono text-7xl md:text-9xl text-rose-100 opacity-80 h-full pt-36'> {displayTime} </div>
         <div className='pb-5'>
-          <Image src={Rose_Headpat} width={150} height={150} />
+          <div className='bg-black bg-opacity-20 rounded-full'>
+            <Image className='rounded-full' src={Rose_Headpat} width={150} height={150} alt='RoseOC'/>
+            {/* <User className='rounded-full' size={150}/> */}
+          </div>
         </div>
         <div className='space-y-3 h-full flex flex-col items-center text-xl'>
           <p>Rose van Leeuwen</p>

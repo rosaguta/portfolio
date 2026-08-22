@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import useIsMobile from '@/functions/useIsMobile'
 import useWindowDimensions from '@/functions/useWindowDimensions.js'
 
-export default function BootScreenAnim() {
+export default function BootScreenAnim({onComplete}) {
   const [loadingText, setLoadingText] = useState('loading');
   const [visible, setVisible] = useState(true);
   const { width, height } = useWindowDimensions();
@@ -50,7 +50,12 @@ Deploying positivity framework\t\t[ok]`.split('\n');
 
     return () => clearTimeout(timeout);
   }, []);
-
+  useEffect(()=>{
+    const animationDone = setTimeout(()=>{
+      onComplete()
+    }, 7000)
+    return () => clearTimeout(animationDone)
+  },[])
   const getRandomDelay = (min, max) => Math.random() * (max - min) + min;
 
   const delays = useMemo(() => {
